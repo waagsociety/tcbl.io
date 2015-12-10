@@ -48,6 +48,7 @@ class Lab < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
   belongs_to :referee, class_name: 'Lab'
   has_one :criteria, class_name: 'LabCriteria'
+  belongs_to :refere_approval_process
 
   validates_presence_of :name, :country_code, :slug#, :creator
   validates_presence_of :address_1, :kind, on: :create
