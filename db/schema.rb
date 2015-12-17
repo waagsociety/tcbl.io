@@ -408,6 +408,17 @@ ActiveRecord::Schema.define(version: 20160725134928) do
 
   add_index "recoveries", ["user_id"], name: "index_recoveries_on_user_id", using: :btree
 
+  create_table "referee_approval_processes", force: true do |t|
+    t.integer  "referred_lab_id"
+    t.integer  "referee_lab_id"
+    t.boolean  "approved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "referee_approval_processes", ["referee_lab_id"], name: "index_referee_approval_processes_on_referee_lab_id", using: :btree
+  add_index "referee_approval_processes", ["referred_lab_id"], name: "index_referee_approval_processes_on_referred_lab_id", using: :btree
+
   create_table "role_applications", force: true do |t|
     t.integer  "user_id"
     t.integer  "lab_id"
