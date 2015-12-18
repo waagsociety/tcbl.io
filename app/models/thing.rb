@@ -40,4 +40,15 @@ class Thing < ActiveRecord::Base
     self.select(:updated_at).order('updated_at DESC').first
   end
 
+  #<<<<<<< HEAD
+  #=======
+  #  private
+  #
+  #    def update_photo_src
+  #      if self.photo_src.present? and self.photo_src.empty?
+  #        self.photo_src = self.documents.first.image.url(:large) if documents.first
+  #      end
+  #    end
+  #
+  #>>>>>>> faf5074... fixing test
 end
