@@ -18,6 +18,16 @@ ready = ->
   }
   window.userList = new List('students', options)
 
+  last_valid_selection = $('.referee_approval').val
+  $('.referee_approval').change (event) ->
+    if $(this).val().length > 3
+      $(this).val last_valid_selection
+    else
+      last_valid_selection = $(this).val()
+    return
+  return
+
+
   $('#students-filter a').click (e) ->
     e.preventDefault()
     $('#students-filter dd').removeClass('active')
