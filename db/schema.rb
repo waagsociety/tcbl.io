@@ -280,6 +280,8 @@ ActiveRecord::Schema.define(version: 20160725134928) do
     t.boolean  "network",                  default: false
     t.boolean  "programs",                 default: false
     t.boolean  "tools",                    default: false
+    t.boolean  "charter",                  default: false
+    t.boolean  "public",                   default: false
   end
 
   add_index "labs", ["creator_id"], name: "index_labs_on_creator_id", using: :btree
