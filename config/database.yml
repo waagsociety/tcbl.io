@@ -1,14 +1,16 @@
 development: &defaults
   adapter      : postgresql
   encoding     : unicode
-  database     : fablabs_develop
   pool         : 5
   host         : 127.0.0.1
   min_messages : WARNING
+  database : <%= ENV['DB_NAME'] %>
+  username : <%= ENV['DB_USERNAME'] %>
+  password : <%= ENV['DB_PASSWORD'] %>
+  host     : <%= ENV['DB_HOST'] %>
 
 test:
   <<: *defaults
-  database     : fablabs_testdb
 
 production:
   <<: *defaults
