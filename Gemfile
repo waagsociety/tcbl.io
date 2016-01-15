@@ -17,8 +17,8 @@ gem 'whenever', :require => false
 gem 'slim'
 gem 'redis-rails'
 gem 'redis-rack-cache'
-gem 'newrelic_rpm'
-gem "skylight"
+# gem 'newrelic_rpm'
+# gem "skylight"
 gem "opbeat"
 gem 'sitemap_generator'
 gem "rack-cache"

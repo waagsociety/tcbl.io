@@ -4,13 +4,13 @@ upstream unicorn {
 
 server {
   listen       80;
-  server_name  fablabs.io;
-  return 301 $scheme://www.fablabs.io$request_uri;
+  server_name  wg136.waag.org;
+  return 301 $scheme://wg136.waag.org$request_uri;
 }
 
 server {
   listen 80;# default deferred;
-  server_name www.fablabs.io api.fablabs.io;
+  server_name wg136.waag.org;
 
   root <%= current_path %>/public;
 

@@ -2,7 +2,7 @@
 require File.expand_path('../application', __FILE__)
 require "bundler/capistrano"
 #require "sidekiq/capistrano"
-require "opbeat/capistrano"
+# require "opbeat/capistrano"
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
 # require 'capistrano/maintenance'
@@ -13,7 +13,7 @@ set :rails_env, "production"
 set :recipes, "config/recipes"
 # monit varnish redis
 # %w(newrelic varnish memcached monit base postgresql sidekiq redis logs figaro blacklist nginx logs unicorn nodejs rbenv security check mosh).each do |r|
- %w(newrelic varnish memcached base sidekiq redis logs figaro blacklist nginx logs unicorn nodejs rbenv security check mosh).each do |r|
+ %w(varnish memcached base sidekiq redis logs figaro blacklist nginx logs unicorn nodejs rbenv security check mosh).each do |r|
   load "#{recipes}/#{r}"
 end
 
@@ -29,9 +29,14 @@ set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :rake, "#{rake} --trace"
-set :scm, "git"
-#set :repository, "git@github.com:waagsociety/#{application}.git"
-set :repository, "git://github.com/waagsociety/tcbl.io.git"
+#set :scm, "git"
+#set :repository, "git://github.com/waagsociety/tcbl.io.git"
+
+#for deploy from local copy
+set :scm, :none
+set :repository, "."
+set :deploy_via, :copy
+
 set :branch, "master"
 set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
