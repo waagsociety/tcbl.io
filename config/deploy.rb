@@ -17,11 +17,11 @@ set :recipes, "config/recipes"
 end
 
 server ENV['APP_SERVER'], :web, :app, :db, primary: true
-# 146.185.179.183
+#146.185.179.183
 # server "sagan.fablabs.io", :db
 
 set :port, ENV['SSH_PORT']
-set :application, "fablabs"
+set :application, "tcbl.io"
 set :user, ENV['DEPLOY_USER']
 set :password, ENV['DEPLOY_PASS']
 set :deploy_to, "/home/#{user}/apps/#{application}"
@@ -29,7 +29,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 set :rake, "#{rake} --trace"
 set :scm, "git"
-set :repository, "git@github.com:fablabbcn/#{application}.git"
+set :repository, "git@github.com:waagsociety/#{application}.git"
 set :branch, "master"
 set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
