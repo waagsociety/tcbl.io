@@ -22,7 +22,7 @@
 .zeus.sock
 /coverage
 /config/initializers/words.rb
-words.yml
+# words.yml
 /csv
 .localeapp
 *.rdb
