@@ -18,6 +18,17 @@ class UserMailer < ActionMailer::Base
     end
   end
 
+  def lab_reset lab
+    begin
+      users = (lab.direct_admins + [lab.creator]).compact.uniq
+      users.each do |user|
+        @user = user
+        mail(to: @user.email_string, subject: "[#{lab}] Lab has been reset, please read on")
+      end
+    rescue ActiveRecord::RecordNotFound
+    end
+  end
+
   def employee_approved employee_id
     begin
       @employee = Employee.find(employee_id)
