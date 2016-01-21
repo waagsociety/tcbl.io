@@ -1,16 +1,16 @@
 en:
   capabilities:
-    three_d_printing:       "3D printing"
-    circuit_production:     "Circuit production"
-    laser:                  "Laser"
-    precision_milling:      "Precision milling"
-    vinyl_cutting:          "Vinyl cutting"
-    cnc_milling:            "CNC-Milling"
-    three_d_printing:       "3D printing"
-    circuit_production:     "Circuit production"
-    laser:                  "Laser"
-    precision_milling:      "Precision milling"
-    vinyl_cutting:          "Vinyl cutting"
+    designers:       "Designers"
+    fashion_designers:     "Fashion Designers"
+    students:                  "Students"
+    engineers:      "Engineers"
+    textile_designers:          "Textile Designers"
+    artists:            "Artists"
+    teachers:       "Teachers"
+    curators:     "Curators"
+    researchers:                  "Researchers"
+    entrepeneurs:      "Entrepeneurs"
+    other:          "Other"
 
   views:
     header:
