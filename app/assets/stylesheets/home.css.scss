@@ -6,11 +6,6 @@
     100% {-webkit-transform: scale(1, 1); opacity: 0.7;}
 }
 
-#homepage-map {
-  background-size: cover;
-  background-position: top center;
-  background-image: url('TCBL-map.jpg');
-}
 
 .credit .photo-from {
   margin-top: 5px;
@@ -38,6 +33,12 @@
   }
 }
 
+#homepage-map {
+  background-size: cover;
+  background-position: top center;
+  //background-image: url('TCBL-map.jpg');
+}
+
 .a-home {
 
   #homepage-map {
@@ -45,8 +46,8 @@
     width: 100%;
     margin-top: -15px;
     // height: 220px;
-    // background: #B7E3E5;//$topbar-bg;
-    padding: 100px 0 0;
+    background: #F8D3CD;//light pink
+    padding: 4em 2em;
     // border-bottom: 1px solid #AAA;
     // position: relative;
   }
@@ -56,28 +57,28 @@
   }
 
   h2 {
-    margin: 0 0 0.5em;
+    margin: 0 0 0.25em;
     font-size: 1.2em;
     color: #fff;
     text-transform: uppercase;
     font-family: 'Raleway';
-    // color: rgba(0,0,0,0.7);
-    // font-weight: bold;
 
-    // font-family: 'Montserrat';
-    // text-transform: uppercase;
   }
-  // strong {
-  //   text-transform: uppercase;
-  //   font-weight: bold;
-  //   font-size: 1.1em;
-  // }
+
   h3 {
     letter-spacing: -1px;
     text-transform: uppercase;
     font-family: 'Raleway';
     font-weight: bold;
     color: #000;
+  }
+
+  .info-box-title {
+      border-bottom: 3px solid #CBDCCE;
+      height: 3px;
+      max-width: 405px;
+      display: block;  
+      margin: 0px 0px 0.25em;
   }
 
 
@@ -108,23 +109,15 @@
   #homepage-search {
     padding: 10px;
     border-radius: 8px;
-    // background: white;
     margin: 0 auto;
-    // margin: 50px auto 0;
-    // position: absolute;
-    // top: 50px;
     z-index: 80;
     display: block;
     width: 500px;
     max-width: 95%;
-    // background: #FFF;//#dee1b2;
     text-align: center;
 
-    // box-shadow:         0px 0px 16px rgba(50, 50, 50, 0.5);
     p {
       font-size: 1.4em;
-      // color: #3D3544;
-      // color: #333;
       margin: 0;
     }
     .submit {
@@ -173,14 +166,11 @@
     h2 {
       font-size: 1em;
       color: #111;
-      // text-shadow: 1px 1px 1px lighten(#7D7496, 20%)
     }
 
     .more {
       text-align: center;
       font-size: 1.5em;
-      // line-height: 60px;
-
       color: #2b3233;
       span {
         display: inline-block;
@@ -238,8 +228,18 @@
     background-color: rgba(14, 15, 15, 0.32);
     padding: 2em;
     margin: 75px auto;
-    max-width: 75%;
+    
+    p {
+      font-size: 1.25rem;
+    }
 
+    a {
+      color: white;
+      border-bottom: 2px dotted #FC4F24;
+    }
+    a:hover{
+      color: #FC4F24;
+    }
   }
 
   .splash-image {
@@ -256,16 +256,9 @@
       margin-bottom: 20px !important;
     }
     .case-study {
-      // line-height: 1.6em;
       margin: 0;
     }
 
-
-
-
-    // .has-form{
-    //   display: none;
-    // }
     .navbar {
       margin: 0;
     }
@@ -279,14 +272,13 @@
       margin-bottom: 2em;
     }
     h3 {
-      // font-weight: bold;
       font-size: 1.2em;
     }
     .pull-left {
       width: 120px;
     }
     h1,h2,h3,h4,h5,h6 {
-      // text-shadow: -1px -1px 1px #1b1b1b !important;
+    
     }
   }
 

@@ -1,5 +1,12 @@
 - title t("views.home.welcome")
 
+.whats-a-fab-lab.splash-image
+  .row
+    .columns.large-12.info-box
+      %h2= t("views.home.whats_a_fab_lab")
+      %span.info-box-title
+      %p= t("views.home.fab_labs_description", fab_foundation: (link_to "TCBL", "http://www.protect-tcbl.eu") ).html_safe
+
 #homepage-map
   .filter
   #homepage-search
@@ -8,14 +15,13 @@
       
       = t("views.home.around_the_world")
 
-.whats-a-fab-lab.splash-image
+#main-image
   .row
     .columns.large-12.info-box
-      %h2= t("views.home.whats_a_fab_lab")
-      %p= t("views.home.fab_labs_description", fab_foundation: (link_to "TCBL", "http://www.protect-tcbl.eu") ).html_safe
+      %h2="Re-thinking the Industry"
+      %span.info-box-title
+      %p="We're taking advantage of new technology to rebuild from the ground up as we bring together traditional craftsmanship with 21st century services. Our new industrial scenarios rely on customer-driven production as we apply innovative methods, materials, and tools. Our business models allow for keeping design and production local. We focus on diversity and excellence in niche markets."
 
-
-#main-image
 .credit{style: 'background: #FFF'}
   .row
     .columns.large-12.text-right
@@ -39,7 +45,7 @@
               %p
                 I'm an
                 %strong ENTHUSIAST
-                and I want to participate with the global Textile Lab Network. Find labs near me, see what's happening in the labs around the world and maybe one day open my own!
+                and I want to participate with the global Textile & Business Lab Network. Find labs near me, see what's happening in the labs around the world and maybe one day open my own!
 
         .columns.large-6.case-study
           .media
@@ -47,7 +53,7 @@
             .media-body
               %p
                 I'm a
-                %strong TEXTILE LAB MANAGER
+                %strong TEXTILE OR BUSINESS LAB MANAGER
                 and I want to add my lab to the network. Then I'll be able to share information and knowledge from my lab and interact with fellow users of the site.
 
   .row
@@ -80,7 +86,7 @@
             //.columns.small-3.large-4=image_tag "home-icons/map.png"
             .columns.small-9.large-8
               %h3= t("views.home.world_map")
-              %p An interactive map showing the location of all the Fab Labs around the world
+              %p An interactive map showing the location of all the Textile & Business Labs around the world
 
       .columns.large-4
         = link_to machines_path do
@@ -88,7 +94,7 @@
             //.columns.small-3.large-4= image_tag "home-icons/machines.png"
             .columns.small-9.large-8
               %h3= t("views.home.machines")
-              %p A growing directory/wiki of all of the tools used and recommended by Fab Labs
+              %p A growing directory/wiki of all of the tools used and recommended by Textile & Business Labs
 
 
     

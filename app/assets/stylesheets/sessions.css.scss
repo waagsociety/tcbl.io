@@ -85,7 +85,7 @@ body.sessions {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 105%;
     background: rgba(0,0,0,0.3);
   }
   a, label {
@@ -98,7 +98,8 @@ body.sessions {
   }
   input {
     width: 100%;
-    font-size: 1.4em;
+
+    font-size: 1.25em;
     margin-bottom: 0.5em;
     padding: 0.5em;
     border: none;

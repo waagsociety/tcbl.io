@@ -11,7 +11,7 @@
     = csrf_meta_tags
     :css
       body {
-        background-image: url('#{image_path("//i.imgur.com/myy9Pdq.jpg")}');
+        background-image: url('#{image_path("bg03.jpg")}');
       }
   %body.sessions{ class: body_classes }
     .fade-bg
@@ -24,6 +24,6 @@
       = yield
 
       .bg-info
-        #{link_to "ELEFAB", "http://www.fablabbcn.org/2013/10/elefab-2/"}, by #{link_to "Fab Lab Barcelona", "/fablabbcn"}
+        #{link_to "Fablab Amsterdam", "http://www.waag.org"}, by #{link_to "Fab Lab Amsterdam", "/#"}
 
     = render "application/footer_scripts"
