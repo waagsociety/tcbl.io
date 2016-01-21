@@ -9,7 +9,7 @@
 #homepage-map {
   background-size: cover;
   background-position: top center;
-  background-image: url(https://i.imgur.com/WXrpbgp.jpg);
+  background-image: url('TCBL-map.jpg');
 }
 
 .credit .photo-from {
@@ -17,24 +17,7 @@
   font-size: 0.8em;
   font-style: italic;
   color: #AAA;
-  // a {
-  //   color: #AAA;
-  // }
-}
 
-#frostis-lab {
-  &:hover {
-    .note {
-      border: none;
-      -webkit-animation: pulsate 2s ease-out;
-      -webkit-animation-iteration-count: infinite;
-    }
-  }
-  position: relative;
-  img {
-    // visibility: hidden;
-    width: 100%;
-  }
 }
 
 .note {
@@ -63,7 +46,7 @@
     margin-top: -15px;
     // height: 220px;
     // background: #B7E3E5;//$topbar-bg;
-    padding: 20px 0 0;
+    padding: 100px 0 0;
     // border-bottom: 1px solid #AAA;
     // position: relative;
   }
@@ -75,7 +58,9 @@
   h2 {
     margin: 0 0 0.5em;
     font-size: 1.2em;
-    color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Raleway';
     // color: rgba(0,0,0,0.7);
     // font-weight: bold;
 
@@ -90,9 +75,9 @@
   h3 {
     letter-spacing: -1px;
     text-transform: uppercase;
-    font-family: 'Montserrat';
+    font-family: 'Raleway';
     font-weight: bold;
-    color: #FFF;
+    color: #000;
   }
 
 
@@ -167,6 +152,10 @@
     }
   }
 
+  .tcbl-icon {
+    padding: 0 1em;
+  }
+
   .stripe {
     padding: 20px 0 10px;
   }
@@ -174,8 +163,8 @@
     h2 {
       color: #777;
     }
-    background: #222;
-    color: #CCC;
+    background: #FFF;
+    color: #000;
   }
 
   #main .near-me {
@@ -184,7 +173,7 @@
     h2 {
       font-size: 1em;
       color: #111;
-      text-shadow: 1px 1px 1px lighten(#7D7496, 20%)
+      // text-shadow: 1px 1px 1px lighten(#7D7496, 20%)
     }
 
     .more {
@@ -218,9 +207,47 @@
   }
 
   .whats-a-fab-lab {
-    background: #fff;
+    
   }
 
+    #main-image {
+    &:hover {
+      .note {
+        border: none;
+        -webkit-animation: pulsate 2s ease-out;
+        -webkit-animation-iteration-count: infinite;
+      }
+    }
+    position: relative;
+    img {
+      // visibility: hidden;
+      width: 100%;
+    }
+    background: url('bg03.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 500px;  
+    box-shadow: 1px 10px 10px rgba(100, 100, 100, 0.15);
+  }
+
+
+  .info-box {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35rem;
+    color: #FFF;
+    background-color: rgba(14, 15, 15, 0.32);
+    padding: 2em;
+    margin: 75px auto;
+    max-width: 75%;
+
+  }
+
+  .splash-image {
+    background: url('bg02.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    height: 500px; 
+    box-shadow: 1px 10px 10px rgba(100, 100, 100, 0.15);
+  }
 
     .case-studies {
       background: #FFF;
@@ -259,7 +286,7 @@
       width: 120px;
     }
     h1,h2,h3,h4,h5,h6 {
-      text-shadow: -1px -1px 1px #1b1b1b !important;
+      // text-shadow: -1px -1px 1px #1b1b1b !important;
     }
   }
 

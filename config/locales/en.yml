@@ -36,16 +36,13 @@ en:
     home:
       welcome:              "Welcome"
       around_the_world:     "Around the globe"
-      whats_a_fab_lab:      "I'm new here. What's a Fab Lab?"
-      fab_labs_description: "Fab labs provide widespread access to modern means
-                            for invention. They began as an outreach project from
-                            MIT's Center for Bits and Atoms (CBA), and became into a
-                            collaborative and global network. You can find more
-                            information about Fab Labs on the
-                            <a href='www.fabfoundation.org'>Fab Foundation</a>
-                            Website. The annotated photo below illustrates the
-                            facilities of a typical Fab Lab."
-      who_is_it_for:        "Who is fablabs.io for?"
+      whats_a_fab_lab:      "I'm new here. What's a Textile Lab?"
+      fab_labs_description: "Textile & Clothing Business Labs provide widespread access to modern means
+                            for invention. You can find more
+                            information about Textile Labs on the
+                            <a href='www.project-tcbl.eu'>TCBL</a>
+                            Website."
+      who_is_it_for:        "Who is TCBL for?"
       what_can_i_do:        "What can I do?"
       lab_profiles:         "Lab profiles"
       world_map:            "World map"

@@ -89,7 +89,7 @@ $base-line-height: 150%;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to define default font stacks
-$font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-sans-serif: "Raleway", Arial, Helvetica, sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
@@ -101,7 +101,7 @@ $white       : #FFFFFF;
 $ghost       : #FAFAFA;
 $snow        : #F9F9F9;
 $vapor       : #F6F6F6;
-$white-smoke : #F5F5F5;
+$white-smoke : #FFF;
 $silver      : #EFEFEF;
 $smoke       : #EEEEEE;
 $gainsboro   : #DDDDDD;
@@ -118,11 +118,11 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #0275BC;
-$secondary-color: #e7e7e7;
+$primary-color: #24A8E0;
+$secondary-color: #FC4F24;
 $alert-color: #f04124;
-$success-color: #009E5A;
-$warning-color: #f08a24;
+$success-color: #F190A0;
+$warning-color: #EBD63D;
 $info-color: #a0d3e8;
 
 // We use these to control various global styles
@@ -409,7 +409,7 @@ $paragraph-font-size: 0.8rem;
 // $include-html-nav-classes: $include-html-classes;
 
 // We use this to set the background color for the breadcrumb container.
-// $crumb-bg: scale-color($secondary-color, $lightness: 55%);
+ $crumb-bg: scale-color($ghost, $lightness: 55%);
 
 // We use these to set the padding around the breadcrumbs.
 // $crumb-padding: rem-calc(9 14 9);
@@ -425,7 +425,7 @@ $paragraph-font-size: 0.8rem;
 // We use these to set various text styles for breadcrumbs.
 // $crumb-font-size: rem-calc(11);
 // $crumb-font-color: $primary-color;
-// $crumb-font-color-current: $oil;
+// $crumb-font-color-current: $black;
 // $crumb-font-color-unavailable: $aluminum;
 // $crumb-font-transform: uppercase;
 // $crumb-link-decor: underline;
@@ -452,7 +452,7 @@ $button-lrg: rem-calc(20);
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
 // $button-font-color: $white;
-// $button-font-color-alt: $oil;
+// $button-font-color-alt: $black;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
@@ -857,7 +857,7 @@ $legend-padding: rem-calc(0 3);
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: $oil;
+// $off-canvas-bg: $black;
 // $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
 // $off-canvas-bg-active: scale-color($tabbar-bg, $lightness: -30%);
 
@@ -1426,7 +1426,7 @@ $topbar-link-bg-hover: $topbar-bg;
 $topbar-link-bg-color-hover: $charcoal;
 $topbar-link-bg-active: $topbar-bg;
 $topbar-link-bg-active-hover: $topbar-bg;
-$topbar-link-font-family: $body-font-family;
+$topbar-link-font-family: Arial;
 $topbar-link-text-transform: none;
 $topbar-link-padding: ($topbar-height / 2);
 $topbar-back-link-size: rem-calc(18);
