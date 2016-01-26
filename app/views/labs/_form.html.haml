@@ -26,7 +26,6 @@
 
               %label.radio{style: "width: 160px;"}
                 = m.humanize.titleize
-
         = f.input :blurb, label: 'Overview',  as: 'text', hint: 'A very brief overview of the lab, maybe include what it specializes in. <span id="description-count"></span> characters available.'.html_safe, input_html: { rows: 3, data: { limit: 200, counter: '#description-count'} }
 
         = f.input :description, hint: 'An in-depth description of the lab', input_html: { style: 'height: 8em' }
