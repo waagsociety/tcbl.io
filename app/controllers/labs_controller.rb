@@ -40,6 +40,7 @@ class LabsController < ApplicationController
     @lab = current_user.created_labs.build
     @lab.employees.build
     @lab.links.build
+	@lab.criteria = LabCriteria.new
     authorize_action_for @lab
   end
 
@@ -148,7 +149,8 @@ private
       machine_ids: [ ],
       capabilities: [ ],
       links_attributes: [ :id, :link_id, :url, '_destroy' ],
-      employees_attributes: [ :id, :job_title, :description ]
+      employees_attributes: [ :id, :job_title, :description ],
+	  criteria_attributes: [:principle1, :principle2, :principle3, :principle4, :principle5, :principle6, :principle7, :service1, :service2, :service3, :service4, :service5, :network]
     )
   end
 

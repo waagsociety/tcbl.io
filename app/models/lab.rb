@@ -74,6 +74,7 @@ class Lab < ActiveRecord::Base
 
   accepts_nested_attributes_for :links, reject_if: lambda{ |l| l[:url].blank? }, allow_destroy: true
   accepts_nested_attributes_for :employees
+  accepts_nested_attributes_for :criteria
 
   scope :search_for, ->(q) { search_by_name(q) if q.present?}
   scope :in_country_code, ->(cc) { where(country_code: cc) if cc.present?}

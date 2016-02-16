@@ -1,6 +1,66 @@
 .row
   .columns.large-12
     = render "backstage/header"
+
+
+    Application Criteria
+    %table.table
+      %tr
+        %th Curiosity Principle
+        %td
+          = @lab.criteria.principle1
+      %tr
+        %th Viability Principle
+        %td
+          = @lab.criteria.principle2
+      %tr
+        %th Durability Principle
+        %td
+          = @lab.criteria.principle3
+      %tr
+        %th Multiplicity Principle
+        %td
+          = @lab.criteria.principle4
+      %tr
+        %th Openness Principle
+        %td
+          = @lab.criteria.principle5
+      %tr
+        %th Respect Principle
+        %td
+          = @lab.criteria.principle6
+      %tr
+        %th Responsibility Principle
+        %td
+          = @lab.criteria.principle7
+      %tr
+        %th Service 1
+        %td
+          = @lab.criteria.service1
+      %tr
+        %th Service 2
+        %td
+          = @lab.criteria.service2
+      %tr
+        %th Service 3
+        %td
+          = @lab.criteria.service3
+      %tr
+        %th Service 4
+        %td
+          = @lab.criteria.service4
+      %tr
+        %th Service 5
+        %td
+          = @lab.criteria.service5
+      %tr
+        %th Network and Collaborations 
+        %td
+          = @lab.criteria.network
+
+
+
+  
     = title @lab
     %table.table
       %tr
@@ -78,3 +138,7 @@
     - if current_user.has_role? :superadmin
       = link_to edit_backstage_lab_path(@lab), class: 'button' do
         = fa_icon "edit", text: "Edit Lab"
+
+  %hr
+
+    
