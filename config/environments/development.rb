@@ -57,6 +57,6 @@ Fablabs::Application.configure do
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { :host => "fablabs.dev" }
+  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
 end

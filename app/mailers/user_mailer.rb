@@ -2,7 +2,7 @@ Premailer::Rails.config.merge!(link_query_string: 'from=f10m001')
 
 class UserMailer < ActionMailer::Base
 
-  default from: "FabLabs.io <notifications@fablabs.io>"
+  default from: "TCBL <scrm@waag.org>"
 
   %w(submitted approved rejected removed referee_approved more_info_added more_info_needed).each do |action|
     define_method("lab_#{action}") do |lab_id|
@@ -16,11 +16,6 @@ class UserMailer < ActionMailer::Base
       rescue ActiveRecord::RecordNotFound
       end
     end
-  end
-
-  def fab10 user
-    @user = user
-    mail(reply_to: "info@fab10.org", to: @user.email_string, subject: "FAB10 Discount Code")
   end
 
   def employee_approved employee_id
@@ -43,7 +38,7 @@ class UserMailer < ActionMailer::Base
   def verification user_id
     begin
       @user = User.find(user_id)
-      mail(to: @user.email_string, from: "FabLabs.io <support@fablabs.io>", subject: "Email Verification Instructions")
+      mail(to: @user.email_string, from: "TCBL.eu <scrm@waag.org>", subject: "Email Verification Instructions")
     rescue ActiveRecord::RecordNotFound
     end
   end
@@ -51,7 +46,7 @@ class UserMailer < ActionMailer::Base
   def account_recovery_instructions user_id
     begin
       @user = User.find(user_id)
-      mail(to: @user.email_string, from: "FabLabs.io <support@fablabs.io>", subject: "Account Recovery Instructions")
+      mail(to: @user.email_string, from: "TCBL.eu <scrm@waag.org>", subject: "Account Recovery Instructions")
     rescue ActiveRecord::RecordNotFound
     end
   end
