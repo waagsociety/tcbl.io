@@ -44,7 +44,7 @@ class LabsController < ApplicationController
   end
 
   def create
-    @lab = current_user.created_labs.build lab_params
+	@lab = current_user.created_labs.build lab_params
     @lab.employees.first.assign_attributes(user: current_user, lab: @lab)
     authorize_action_for @lab
     if @lab.save

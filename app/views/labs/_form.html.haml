@@ -2,116 +2,137 @@
   = render 'form_errors', resource: lab
 
   - if lab.new_record?
+
     %fieldset
-      %legend
-        Important Information
-      = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Referee Lab"
-
-      = f.input :parent_id, label: "Parent (Supernode) Lab", as: 'select', collection: Lab.with_approved_state.order('name ASC'), hint: "Is this lab connected with a Supernode? If so, which lab?", input_html: { class: 'enhanced' }
-
-  %fieldset
-    %legend Basic Details
-
-    = f.input :name, label: 'Lab Name'
-
+      %legend 
+        Step 1 
+      = f.input :name, label: 'Lab Name'
+      = f.label :name, 'Type of Lab'
     
-    = f.label :name, 'Type of Lab'
-    - Lab::Kinds.each_with_index do |m, index|
-      %span
-        = f.radio_button :kind, index 
+      .radio-group
+        - Lab::Kinds.each_with_index do |m, index|
+          %span
+            = f.radio_button :kind, index 
+  
+            %label.radio{style: "width: 160px;"}
+              = m.humanize.titleize
 
-        %label.radio{style: "width: 160px;"}
-          = m.humanize.titleize
+      = f.input :blurb, label: 'Overview',  as: 'text', hint: 'A very brief overview of the lab, maybe include what it specializes in. <span id="description-count"></span> characters available.'.html_safe, input_html: { rows: 3, data: { limit: 200, counter: '#description-count'} }
 
+      = f.input :description, hint: 'An in-depth description of the lab', input_html: { style: 'height: 8em' }
+
+      = f.input :slug, hint: "This is the unique 'username' of the lab, it will be in the URL" do
+        .row.collapse
+          .columns.large-3
+            %span.prefix= "#{Rails.application.config.url}/"
+          .columns.large-9= f.input_field :slug, class: 'form-control'
+  
+      .row
+        .columns.large-3= image_tag @lab.avatar, class: 'avatar big'
+        .columns.large-9= f.input :avatar_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: 'labs/avatars/', fp_store_container: ENV['S3_BUCKET'] } }, label: 'Lab profile picture', hint: "This will be a square image next shown next to the lab name throughout the site"
+      %hr/
+      .row
+        .columns.large-3
+          - if @lab.header_image_src.present?
+            = image_tag @lab.header_image_src, class: 'avatar big'
+        .columns.large-9= f.input :header_image_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: "labs/photos/", fp_store_container: ENV['S3_BUCKET'] } }, label: 'Lab photo', hint: "A single (large) photo of your lab. You will be able to add more photos soon."
+  
   %fieldset
-    %legend Terms and conditions
-    .row
+    %legend Step 2 
+    = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
+
+    -#= f.input :parent_id, label: "Parent (Supernode) Lab", as: 'select', collection: Lab.with_approved_state.order('name ASC'), hint: "Is this lab connected with a Supernode? If so, which lab?", input_html: { class: 'enhanced' }
+    .radio-group
       = f.radio_button :tools, 1
       %label.radio{style: "width: 80%;"}
         The submitted lab commits to actively comply to the TCBL principles .
+      
+    = f.simple_fields_for :criteria do |c|
+      = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Creative exploration of new paths, roles, social constructs and business models. Learning-driven action research as a way of life, including learning by errors and mistakes. Learning as both an individual and collective process of knowledge creation. Reframing and rethinking what exists, respect for different disciplines and methods. Trying new experiences, playfulness, randomness, having the courage to try radically new approaches"
+      = c.input :principle2, label: "Viability principle", placeholder: "How do you implement the Viability Principle in your lab?", hint: "Things should stand on their own feet. But they should also do so by increasing the prosperity of businesses and the well being of communities; this is our ultimate goal. Importance of both monetary and non-monetary transactions."
+      = c.input :principle3, label: "Durability principle", placeholder: "How do you implement the Durability Principle in your lab?", hint: "Commitment to the environment, towards circular economy and zero km. Durable and resilient systems. Above all, reduce consumption and a consumption-driven culture, work towards sustainable fashion. Reduce waste, design for durable relations, focus on reuse and recycling, save water, reduce emissions (atmosphere and toxic waste)."
+      = c.input :principle4, label: "Multiplicity principle", placeholder: "How do you implement the Multiplicity Principle in your lab?", hint: "Value of different cultures, traditions, opinions. Roles for both professionals and amateurs, different labour specialisations. Designing for diversity of needs and tastes. Allowing for multiple business models to co-exist and complement each other."
+      = c.input :principle5, label: "Openness principle", placeholder: "How do you implement the Openness Principle in your lab?", hint: "Trusting others by sharing of resources and information. Search for common processes, platforms and standards: interoperability. Participatory decision-making, using social media, connecting with others. Transparency of practices, supply chains, cost structures, etc. Sharing of new insights and information. Recognition of the contributions of all (age, gender, etc.) overcoming marginality."
+      = c.input :principle6, label: "Respect principle", placeholder: "How do you implement the Respect Principle in your lab?", hint: "Protection of privacy, authorship, and IP. Dignity of the individual, power of social knowledge. Value of place and territories. Caring for things, establishing emotional links with the clothes we wear and looking after them. Respect for those who make the things we have. Equity of business relations, payment of a Fair Price. Capacity building wherever we go."
+      = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Commitment to reliable, trustworthy, professional behaviour. Accountability for the consequences of our actions. Responsible design, responsible production, responsible selling, responsible consumption. Responsible choices of who we work with. Ensuring the right human and physical resources are available and good working conditions within our own organisations. Stable management and accountability."
 
   %fieldset
-    %legend Description
+    %legend Step 3
 
-    = f.input :blurb, as: 'text', hint: 'A very brief overview of the lab, maybe include what it specializes in. <span id="description-count"></span> characters available.'.html_safe, input_html: { rows: 3, data: { limit: 200, counter: '#description-count'} }
+    = f.input :capabilities, as: 'check_boxes', inline_label: true, item_wrapper_class: 'checkbox_container', label: false, collection: Lab::Capabilities.map{|f| [ I18n.t("capabilities.#{f}"), f]}, checked: f.object.capabilities, hint: "Intended members, participants and service users.", label: "Target groups"
 
-    = f.input :description, hint: 'An in-depth description of the lab', input_html: { style: 'height: 8em' }
+    = f.simple_fields_for :criteria do |c|
+      = c.input :service1, label: "Service 1", placeholder: "A service you are interested in providing as part of TCBL and to whom."
+      = c.input :service2, label: "Service 2", placeholder: "A service you are interested in providing as part of TCBL and to whom."
+      = c.input :service3, label: "Service 3", placeholder: "A service you are interested in providing as part of TCBL and to whom."
+      = c.input :service4, label: "Service 4", placeholder: "A service you are interested in providing as part of TCBL and to whom."
+      = c.input :service5, label: "Service 5", placeholder: "A service you are interested in providing as part of TCBL and to whom."
 
-    = f.input :slug, hint: "This is the unique 'username' of the lab, it will be in the URL" do
-      .row.collapse
-        .columns.large-3
-          %span.prefix= "#{Rails.application.config.url}/"
-        .columns.large-9= f.input_field :slug, class: 'form-control'
-
-  %fieldset
-    %legend Lab Images
-
-    .row
-      .columns.large-3= image_tag @lab.avatar, class: 'avatar big'
-      .columns.large-9= f.input :avatar_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: 'labs/avatars/', fp_store_container: ENV['S3_BUCKET'] } }, label: 'Avatar', hint: "This will be a square image next shown next to the lab name throughout the site"
-    %hr/
-    .row
-      .columns.large-3
-        - if @lab.header_image_src.present?
-          = image_tag @lab.header_image_src, class: 'avatar big'
-      .columns.large-9= f.input :header_image_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: "labs/photos/", fp_store_container: ENV['S3_BUCKET'] } }, label: 'Photo', hint: "A single (large) photo of your lab. You will be able to add more photos soon."
 
   %fieldset
-    %legend Lab Location
+    %legend Step 4 
+    -# contact
+
+    %p.hint Contact Person
+    = f.simple_fields_for :employees do |e|
+      = e.input :job_title, label: "Role", placeholder: "Lab Manager"
+      = e.input :description, placeholder: "Daily management and overall organisation."
+
+    %p.hint Collaborators, employees, researchers and participants will be able to request to be linked to this lab once the lab is approved.
+
+    %p.hint Relevant network and collaborating institutes
+    = f.simple_fields_for :criteria do |c|
+      = c.input :network, label: "Description & Links", hint: 'Explain briefly your existing collaborations.'
+    
+  %fieldset
+    %legend Step 5 
+    
     .address
       %fieldset
-        %legend Step 1
         %p.hint Enter the lab's address in the textbox below. Then drag the map marker to pinpoint its exact position.
         = f.input :geocomplete, input_html: { id: 'geocomplete', data: { latlng: "#{@lab.latitude}, #{@lab.longitude}"} }, label: false
       %fieldset.step-2
-        %legend Step 2
-        %p.hint Edit the details in the address fields below.
         .row
           .columns.large-6#map-holder
             #location-picker-map
           .columns.large-6
+            %p.hint Edit the details in the address fields below.
             = f.input :address_1, input_html: { data: {geo: "street_address"}}, label: 'Lab Address', placeholder: 'Address Line 1'
             = f.input :address_2, label: false, placeholder: 'Address Line 2 (Optional)'
             = f.input :city, input_html: { data: {geo: "locality"}}
             = f.input :county, label: 'State/Province/County'
 
-            = f.input :postal_code, input_html: { data: {geo: "postal_code"}}
+            = f.input :postal_code, label:'postcode', input_html: { data: {geo: "postal_code"}}
             = f.input :country_code, as: 'country', label: 'Country', input_html: { data: {geo: "country_short"} }, wrapper_html: { class: 'boo'}, iso_codes: true#, input_html: { class: 'enhanced'}
             = f.input :latitude, as: :hidden, input_html: { data: {geo: "lat"}}
             = f.input :longitude, as: :hidden, input_html: { data: {geo: "lng"}}
             = f.input :zoom, as: :hidden
+        
         %hr/
-        = f.input :address_notes, hint: 'Any details that might be useful for someone trying to find the lab. For example, "Go up the stairs and through the red door".'
+        
+        = f.input :address_notes, label:'Hosted by', hint: 'Please fill in if you are hosted by  an organization or company. Or any details that might be useful for someone trying to find the lab. For example, "Go up the stairs and through the red door".'
 
-  %fieldset
-    %legend Lab Contact Details
-    = f.input :phone, hint: "A general enquiries phone number for the lab", label: "Lab Phone Number"
-    = f.input :email, hint: "A general enquiries email address for the lab", label: "Lab Email Address"
+        %hr/
+        
+        %p.hint Lab Contact Details
+        = f.input :phone, hint: "A general enquiries phone number for the lab", label: "Lab Phone Number"
+        = f.input :email, hint: "A general enquiries email address for the lab", label: "Lab Email Address"
 
-  - if @lab.new_record?
-    %fieldset
-      %legend Your Role
-      %p.hint What is your association with this lab?
-      = f.simple_fields_for :employees do |e|
-        = e.input :job_title, placeholder: "e.g. Lab Manager"
-        = e.input :description, placeholder: "e.g. Coordinates Workshops and Events"
+        -# %fieldset.opening-hours
+        -#   %legend Opening Hours
+        -#   %table{cellspacing: 0}
+        -#     %tr
+        -#       %td
+        -#       - (0..24).each do |hour|
+        -#         %td
+        -#           .rotate= Time.at(hour * 60 * 60).utc.strftime("%H:%M")
+        -#     - [1,2,3,4,5,6,0].each do |day|
+        -#       %tr
+        -#         %th= Date::DAYNAMES[day][0..1]
+        -#         - (0..48).each do |hour|
+        -#           %td
 
-  -# %fieldset.opening-hours
-  -#   %legend Opening Hours
-  -#   %table{cellspacing: 0}
-  -#     %tr
-  -#       %td
-  -#       - (0..48).each do |quart|
-  -#         %td
-  -#           .rotate= Time.at(quart* 30 * 60).utc.strftime("%H:%M")
-  -#     - [1,2,3,4,5,6,0].each do |day|
-  -#       %tr
-  -#         %th= Date::DAYNAMES[day][0..1]
-  -#         - (0..48).each do |quart|
-  -#           %td
-
-  %fieldset
-    %legend Links
+    %p.hint Links
     %p.hint Any websites for this Textiles Lab. It can include blogs, social networks, video/photo sites etc.
     = f.simple_fields_for :links do |link|
       = render 'link_fields', f: link
@@ -120,17 +141,9 @@
         = fa_icon "plus"
         Add another link
 
-  %fieldset
-    %legend Audience 
-    = f.input :capabilities, as: 'check_boxes', inline_label: true, item_wrapper_class: 'checkbox_container', label: false, collection: Lab::Capabilities.map{|f| [ I18n.t("capabilities.#{f}"), f]}, checked: f.object.capabilities, hint: "Check all of the boxes that apply to this lab"
-
     -# = f.association :machines, collection: Machine.includes(:brand).map{|m| ["#{m.brand} - #{m.name}", m.id]}, hint: "We are doing a lot of work with the list of machines. Soon you will be able to add your own machines to the directory, but until then maybe you have some in our list?"
 
     //= f.input :tools_list, hint: "Please list any machines that you have so that we can add them to the directory.", input_html: { style: "height: 8em" }, placeholder: "e.g. Makerbot Industries - Makerbot 2"
 
-  - if @lab.new_record?
-    %fieldset
-      %legend Anything else?
-      = f.input :application_notes
-
-  = f.submit (lab.new_record? ? 'Add Lab' : 'Update Lab'), class: 'button'
+  %p.hint Please review your information and click "submit". The partner labs will review your submition as soon as possible.
+  = f.submit (lab.new_record? ? 'Submit' : 'Update Lab'), class: 'button'

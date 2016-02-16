@@ -43,6 +43,7 @@ class Lab < ActiveRecord::Base
 
   belongs_to :creator, class_name: 'User'
   belongs_to :referee, class_name: 'Lab'
+  has_one :criteria, class_name: 'LabCriteria'
 
   validates_presence_of :name, :country_code, :slug#, :creator
   validates_presence_of :address_1, :kind, on: :create
@@ -63,7 +64,7 @@ class Lab < ActiveRecord::Base
   Kinds = %w(design make place)
 
   #TODO: rename to focusgroups
-  Capabilities = %w(designers textile_designers fashion_designers artists students teachers engineers curators researchers entrepeneurs other)
+  Capabilities = %w(designers textile_designers fashion_designers artists students teachers engineers curators researchers entrepeneurs makers artisans sme unemployed children other)
   bitmask :capabilities, as: Capabilities
 
   unless Rails.env.test?

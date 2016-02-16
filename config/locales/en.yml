@@ -10,6 +10,11 @@ en:
     curators:     "Curators"
     researchers:                  "Researchers"
     entrepeneurs:      "Entrepeneurs"
+    makers: "Makers"
+    artisans: "Artisans"
+    sme: "SME"
+    unemployed: "Unemployed"
+    children: "Children"
     other:          "Other"
 
   views:

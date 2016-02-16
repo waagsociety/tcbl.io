@@ -136,3 +136,5 @@ gem 'capistrano', '~> 2.15'#, group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'byebug'
+

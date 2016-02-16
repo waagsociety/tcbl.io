@@ -21,7 +21,10 @@ set :rails_env, "production"
 # blacklist; words.yml
 # rbenv: install ruby
 # security: setup firewall + fail2ban
-%w(base redis figaro blacklist rbenv security).each do |r|
+# postgresql: database
+# nodejs: needed for uglifier / rake
+#%w(base nodejs).each do |r|
+%w(base redis figaro blacklist rbenv security postgresql nodejs).each do |r|
   load "#{recipes}/#{r}"
 end
 
