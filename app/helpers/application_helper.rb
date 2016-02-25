@@ -41,14 +41,22 @@ module ApplicationHelper
     end
   end
 
+# New Link to Avatar Laurie S 
+
   def hocho(img, options)
     return if img.blank?
-    url = "https://davinci.fablabs.io"
-    options = options.unpack('H*').first
-    img = img.unpack('H*').first
-    sig = Digest::SHA1.hexdigest("#{options}#{img}#{ENV['HOCHO_SALT']}")
-    [url, options, img, sig].join('/')
+    img = "big-avatar.png"
   end
+
+
+  # def hocho(img, options)
+  #   return if img.blank?
+  #   url = "https://davinci.fablabs.io"
+  #   options = options.unpack('H*').first
+  #   img = img.unpack('H*').first
+  #   sig = Digest::SHA1.hexdigest("#{options}#{img}#{ENV['HOCHO_SALT']}")
+  #   [url, options, img, sig].join('/')
+  # end
 
   def flash_class(level)
     case level

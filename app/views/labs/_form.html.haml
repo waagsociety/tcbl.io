@@ -3,7 +3,7 @@
 
   - if lab.new_record?
 
-    %fieldset
+    %fieldset.field-one
       %legend 
         Step 1 
       = f.input :name, label: 'Lab Name'
@@ -37,7 +37,7 @@
             = image_tag @lab.header_image_src, class: 'avatar big'
         .columns.large-9= f.input :header_image_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: "labs/photos/", fp_store_container: ENV['S3_BUCKET'] } }, label: 'Lab photo', hint: "A single (large) photo of your lab. You will be able to add more photos soon."
   
-  %fieldset
+  %fieldset.field-two
     %legend Step 2 
     = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
 

@@ -98,3 +98,38 @@ fieldset {
 	float: left;
 	margin-bottom: 20px;
 }
+
+/* custom css laurie */
+
+#new_lab fieldset {
+    /*stacking fieldsets above each other*/
+  // position: absolute;
+  background-color: white;
+  width: 1121px;
+  height: auto;
+}
+
+#new_lab fieldset legend {
+  position: relative;
+}
+
+#new_lab fieldset.field-one {
+  left: 3px;
+}
+
+#new_lab fieldset.field-two legend {
+  left: 43px;
+}
+
+#new_lab fieldset.field-three legend {
+  left: 89px;
+}
+
+
+
+
+
+
+
+
+
