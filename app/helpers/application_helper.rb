@@ -48,7 +48,6 @@ module ApplicationHelper
     img = "big-avatar.png"
   end
 
-
   # def hocho(img, options)
   #   return if img.blank?
   #   url = "https://davinci.fablabs.io"

@@ -35,6 +35,72 @@ ready = ->
   .click ->
     $(this).toggleClass 'active'
 
+# Start Laurie Code
+
+# Back Buttons
+
+  $('.two-back').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-two').removeClass 'active-field' 
+
+  $('.three-back').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-three').removeClass 'active-field'
+    $('.field-two').addClass 'active-field' 
+
+  $('.four-back').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-four').removeClass 'active-field'
+    $('.field-three').addClass 'active-field' 
+
+  $('.five-back').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-five').removeClass 'active-field'
+    $('.field-four').addClass 'active-field' 
+
+  $('.six-back').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-six').removeClass 'active-field'
+    $('.field-five').addClass 'active-field' 
+
+# Next Buttons
+
+  $('.next-two').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-two').addClass 'active-field'
+
+  $('.next-three').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-three').addClass 'active-field'
+    $('.field-two').removeClass 'active-field'
+
+  $('.next-four').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-four').addClass 'active-field'
+    $('.field-three').removeClass 'active-field' 
+
+  $('.next-five').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-five').addClass 'active-field'
+    $('.field-four').removeClass 'active-field'
+
+  $('.next-six').mouseover ->
+    $(this).toggleClass 'active-field' if (down)
+  .click ->
+    $('.field-six').addClass 'active-field'
+    $('.field-five').removeClass 'active-field'
+
+
+# End Laurie Code
 
   $('[data-toggle=offcanvas]').click ->
     $('.row-offcanvas').toggleClass('active')

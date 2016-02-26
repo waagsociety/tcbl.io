@@ -101,35 +101,120 @@ fieldset {
 
 /* custom css laurie */
 
-#new_lab fieldset {
-    /*stacking fieldsets above each other*/
-  // position: absolute;
-  background-color: white;
-  width: 1121px;
-  height: auto;
+#main {
+  display: block;
+  min-height: 1900px;
 }
+
+#new_lab {
+  overflow: hidden;
+}
+
+#new_lab fieldset {
+  background-color: white;
+  max-width: 1000px;
+}
+
+/*stacking fieldsets above each other*/
+
+.fieldset-wrapper {
+
+}
+
+#new_lab fieldset.field-one {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 17;
+  min-height: 1720px;
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+#new_lab fieldset.field-two {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 16;
+  min-height: 1720px;
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+#new_lab fieldset.field-three {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 15.5;
+  min-height: 1720px;
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+#new_lab fieldset.field-four {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 15;
+  min-height: 1720px;
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+#new_lab fieldset.field-five {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+  min-height: 1720px;
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+#new_lab fieldset.field-six {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 9;
+  min-height: 1720px;
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+/* Spacing out the tabs */
 
 #new_lab fieldset legend {
   position: relative;
 }
 
-#new_lab fieldset.field-one {
-  left: 3px;
-}
-
 #new_lab fieldset.field-two legend {
-  left: 43px;
+  left: 103px;
+
 }
 
 #new_lab fieldset.field-three legend {
-  left: 89px;
+  left: 206px;
+
 }
 
+#new_lab fieldset.field-four legend {
+  left: 309px;
 
+}
 
+#new_lab fieldset.field-five legend {
+  left: 412px;
 
+}
 
+#new_lab fieldset.field-six legend {
+  left: 515px;
 
+}
 
+/* Active class to bring fields to front */
 
+.active-field {
+  z-index: 9999 !important;
+}
 
