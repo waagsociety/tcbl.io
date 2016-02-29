@@ -6,10 +6,6 @@
     %fieldset.field-one.field.active-field
       %legend.legend 
         Step 1 
-      .row
-        .columns.large-3
-          %span.button.next-two Go to STEP 2
-
       %div.fieldset-wrapper  
         = f.input :name, label: 'Lab Name'
         = f.label :name, 'Type of Lab'
@@ -42,7 +38,9 @@
               = image_tag @lab.header_image_src, class: 'avatar big'
           .columns.large-9= f.input :header_image_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: "labs/photos/", fp_store_container: ENV['S3_BUCKET'] } }, label: 'Lab photo', hint: "A single (large) photo of your lab. You will be able to add more photos soon."
         %hr/
-
+      .row
+        .columns.large-3
+          %span.button.next-two Go to STEP 2
 
   
   %fieldset.field-two.field
@@ -50,13 +48,6 @@
 
     = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
     %div.fieldset-wrapper
-      .row
-        .columns.large-3
-          %span.button.two-back Go Back
-        .columns.large-3
-          %span.button.next-three Go to Step 3
-
-
 
       -#= f.input :parent_id, label: "Parent (Supernode) Lab", as: 'select', collection: Lab.with_approved_state.order('name ASC'), hint: "Is this lab connected with a Supernode? If so, which lab?", input_html: { class: 'enhanced' }
       .radio-group
@@ -72,16 +63,16 @@
         = c.input :principle5, label: "Openness principle", placeholder: "How do you implement the Openness Principle in your lab?", hint: "Trusting others by sharing of resources and information. Search for common processes, platforms and standards: interoperability. Participatory decision-making, using social media, connecting with others. Transparency of practices, supply chains, cost structures, etc. Sharing of new insights and information. Recognition of the contributions of all (age, gender, etc.) overcoming marginality."
         = c.input :principle6, label: "Respect principle", placeholder: "How do you implement the Respect Principle in your lab?", hint: "Protection of privacy, authorship, and IP. Dignity of the individual, power of social knowledge. Value of place and territories. Caring for things, establishing emotional links with the clothes we wear and looking after them. Respect for those who make the things we have. Equity of business relations, payment of a Fair Price. Capacity building wherever we go."
         = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Commitment to reliable, trustworthy, professional behaviour. Accountability for the consequences of our actions. Responsible design, responsible production, responsible selling, responsible consumption. Responsible choices of who we work with. Ensuring the right human and physical resources are available and good working conditions within our own organisations. Stable management and accountability."
+      .row
+        .columns.large-3
+          %span.button.two-back Go Back
+        .columns.large-3
+          %span.button.next-three Go to Step 3
 
 
   %fieldset.field-three.field
     %legend.legend  Step 3
     %div.fieldset-wrapper
-      .row
-        .columns.large-3
-          %span.button.three-back Go Back
-        .columns.large-3
-          %span.button.next-four Go to Step 4
 
       = f.input :capabilities, as: 'check_boxes', inline_label: true, item_wrapper_class: 'checkbox_container', label: false, collection: Lab::Capabilities.map{|f| [ I18n.t("capabilities.#{f}"), f]}, checked: f.object.capabilities, hint: "Intended members, participants and service users.", label: "Target groups"
 
@@ -91,16 +82,15 @@
         = c.input :service3, label: "Service 3", placeholder: "A service you are interested in providing as part of TCBL and to whom."
         = c.input :service4, label: "Service 4", placeholder: "A service you are interested in providing as part of TCBL and to whom."
         = c.input :service5, label: "Service 5", placeholder: "A service you are interested in providing as part of TCBL and to whom."
-
+      .row
+        .columns.large-3
+          %span.button.three-back Go Back
+        .columns.large-3
+          %span.button.next-four Go to Step 4
 
   %fieldset.field-four.field
     %legend.legend  Step 4 
     %div.fieldset-wrapper
-      .row
-        .columns.large-3
-          %span.button.four-back Go Back
-        .columns.large-3
-          %span.button.next-five Go to Step 5
 
       -# contact
 
@@ -114,15 +104,17 @@
       %p.hint Relevant network and collaborating institutes
       = f.simple_fields_for :criteria_attributes do |c|
         = c.input :network, label: "Description & Links", hint: 'Explain briefly your existing collaborations.'
+
+      .row
+        .columns.large-3
+          %span.button.four-back Go Back
+        .columns.large-3
+          %span.button.next-five Go to Step 5
     
   %fieldset.field-five.field
     %legend.legend  Step 5 
     %div.fieldset-wrapper
-      .row
-        .columns.large-3
-          %span.button.five-back Go Back
-        .columns.large-3
-          %span.button.next-six Go to Step 6
+
     .address
       %fieldset
         %p.hint Enter the lab's address in the textbox below. Then drag the map marker to pinpoint its exact position.
@@ -176,6 +168,11 @@
         = link_to_add_association f, :links, class: 'button tiny' do
           = fa_icon "plus"
           Add another link
+      .row
+        .columns.large-3
+          %span.button.five-back Go Back
+        .columns.large-3
+          %span.button.next-six Go to Step 6
 
     -# = f.association :machines, collection: Machine.includes(:brand).map{|m| ["#{m.brand} - #{m.name}", m.id]}, hint: "We are doing a lot of work with the list of machines. Soon you will be able to add your own machines to the directory, but until then maybe you have some in our list?"
 
@@ -183,8 +180,10 @@
   %fieldset.field-six.field
     %legend.legend  Step 6 
     %div.fieldset-wrapper
+      
+      %p.hint Please review your information and click "submit". The partner labs will review your submition as soon as possible.
+      = f.submit (lab.new_record? ? 'Submit' : 'Update Lab'), class: 'button'
+
       .row
         .columns.large-3
           %span.button.six-back Go Back
-      %p.hint Please review your information and click "submit". The partner labs will review your submition as soon as possible.
-      = f.submit (lab.new_record? ? 'Submit' : 'Update Lab'), class: 'button'
