@@ -60,7 +60,7 @@ module Fablabs
 
     config.url = 'http://tcbl.io'
 
-    config.action_mailer.default_url_options = { host: "www.fablabs.io", protocol: "https" }
+    config.action_mailer.default_url_options = { host: "tcbl.eu", protocol: "https" }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = true
@@ -70,7 +70,7 @@ module Fablabs
       :port => ENV['EMAIL_PORT'].to_i,
       :domain => ENV['EMAIL_DOMAIN'],
       :user_name => ENV['EMAIL_USERNAME'],
-      :password => ENV['EMAIL_PASSWORD']
+      :password => ENV['EMAIL_PASSWORD'],
     }
 
 

@@ -1,6 +1,6 @@
 class RefereeMailer < ActionMailer::Base
 
-  default from: "FabLabs <notifications@fablabs.io>"
+  default from: "TCBL <tcbl@waag.org>"
 
   %w(submitted approved rejected referee_approved more_info_needed more_info_added).each do |action|
     define_method("lab_#{action}") do |lab_id|
@@ -11,7 +11,7 @@ class RefereeMailer < ActionMailer::Base
           users = (@referee.direct_admins + [@referee.creator]).compact.uniq
           users.each do |user|
             @user = user
-            mail(to: user.email_string, subject: "[Fablabs.io] #{@lab} #{action.capitalize}")
+            mail(to: user.email_string, subject: "[tcbl.eu] #{@lab} #{action.capitalize}")
           end
         end
       rescue ActiveRecord::RecordNotFound

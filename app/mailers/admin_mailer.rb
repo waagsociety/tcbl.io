@@ -1,6 +1,6 @@
 class AdminMailer < ActionMailer::Base
 
-  default from: "FabLabs <admin_notifications@fablabs.io>"
+  default from: "TCBL <scrm@waag.org>"
 
   def lab_submitted lab_id
     begin
@@ -13,7 +13,7 @@ class AdminMailer < ActionMailer::Base
   def lab_referee_approved lab_id
     begin
       @lab = Lab.find(lab_id)
-      mail(subject: "[#{@lab}] approved by referee", to: User.admin_emails)
+      mail(subject: "[#{@lab}] approved by reference lab", to: User.admin_emails)
     rescue ActiveRecord::RecordNotFound
     end  
   end
