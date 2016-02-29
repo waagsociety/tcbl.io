@@ -43,6 +43,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-two').removeClass 'active-field' 
+    $('.field-one').addClass 'active-field' 
 
   $('.three-back').mouseover ->
     $(this).toggleClass 'active-field' if (down)
@@ -74,6 +75,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-two').addClass 'active-field'
+    $('.field-one').removeClass 'active-field'
 
   $('.next-three').mouseover ->
     $(this).toggleClass 'active-field' if (down)
@@ -98,6 +100,22 @@ ready = ->
   .click ->
     $('.field-six').addClass 'active-field'
     $('.field-five').removeClass 'active-field'
+
+# Find Error Box, Display All Fields, Remove Buttons
+
+  if $('#error-message').length > 0
+    $('.field').addClass 'active-field '
+    $('.next-two').addClass 'display-none'
+    $('.next-three').addClass 'display-none'
+    $('.next-four').addClass 'display-none'
+    $('.next-five').addClass 'display-none'
+    $('.next-six').addClass 'display-none'
+    $('.two-back').addClass 'display-none'
+    $('.three-back').addClass 'display-none'
+    $('.four-back').addClass 'display-none'
+    $('.five-back').addClass 'display-none'
+    $('.six-back').addClass 'display-none'
+
 
 
 # End Laurie Code

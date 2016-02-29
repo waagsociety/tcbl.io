@@ -117,69 +117,69 @@ fieldset {
 
 /*stacking fieldsets above each other*/
 
-.fieldset-wrapper {
+// .fieldset-wrapper {
 
-}
+// }
 
-#new_lab fieldset.field-one {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 17;
-  min-height: 1720px;
-  max-width: 1000px;
-  min-width: 1000px;
-}
+// #new_lab fieldset.field-one {
+//   position: absolute;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 17;
+//   min-height: 1720px;
+//   max-width: 1000px;
+//   min-width: 1000px;
+// }
 
-#new_lab fieldset.field-two {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 16;
-  min-height: 1720px;
-  max-width: 1000px;
-  min-width: 1000px;
-}
+// #new_lab fieldset.field-two {
+//   position: absolute;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 16;
+//   min-height: 1720px;
+//   max-width: 1000px;
+//   min-width: 1000px;
+// }
 
-#new_lab fieldset.field-three {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 15.5;
-  min-height: 1720px;
-  max-width: 1000px;
-  min-width: 1000px;
-}
+// #new_lab fieldset.field-three {
+//   position: absolute;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 15.5;
+//   min-height: 1720px;
+//   max-width: 1000px;
+//   min-width: 1000px;
+// }
 
-#new_lab fieldset.field-four {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 15;
-  min-height: 1720px;
-  max-width: 1000px;
-  min-width: 1000px;
-}
+// #new_lab fieldset.field-four {
+//   position: absolute;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 15;
+//   min-height: 1720px;
+//   max-width: 1000px;
+//   min-width: 1000px;
+// }
 
-#new_lab fieldset.field-five {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 10;
-  min-height: 1720px;
-  max-width: 1000px;
-  min-width: 1000px;
-}
+// #new_lab fieldset.field-five {
+//   position: absolute;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 10;
+//   min-height: 1720px;
+//   max-width: 1000px;
+//   min-width: 1000px;
+// }
 
-#new_lab fieldset.field-six {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 9;
-  min-height: 1720px;
-  max-width: 1000px;
-  min-width: 1000px;
-}
+// #new_lab fieldset.field-six {
+//   position: absolute;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 9;
+//   min-height: 1720px;
+//   max-width: 1000px;
+//   min-width: 1000px;
+// }
 
 /* Spacing out the tabs */
 
@@ -212,9 +212,25 @@ fieldset {
 
 }
 
-/* Active class to bring fields to front */
+/* Classes to display and hide fields */
+
+.display-none {
+  display: none;
+}
+
+.field {
+  display: none;
+}
 
 .active-field {
-  z-index: 9999 !important;
+  display: block !important;
 }
+
+/* Ensure error message pushes fieldset down */
+
+#error-message {
+  display: flex;
+}
+
+
 

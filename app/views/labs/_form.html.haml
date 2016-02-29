@@ -3,7 +3,7 @@
 
   - if lab.new_record?
 
-    %fieldset.field-one
+    %fieldset.field-one.field.active-field
       %legend.legend 
         Step 1 
       .row
@@ -45,8 +45,10 @@
 
 
   
-  %fieldset.field-two
+  %fieldset.field-two.field
     %legend.legend  Step 2 
+
+    = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
     %div.fieldset-wrapper
       .row
         .columns.large-3
@@ -54,7 +56,7 @@
         .columns.large-3
           %span.button.next-three Go to Step 3
 
-      = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
+
 
       -#= f.input :parent_id, label: "Parent (Supernode) Lab", as: 'select', collection: Lab.with_approved_state.order('name ASC'), hint: "Is this lab connected with a Supernode? If so, which lab?", input_html: { class: 'enhanced' }
       .radio-group
@@ -72,7 +74,7 @@
         = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Commitment to reliable, trustworthy, professional behaviour. Accountability for the consequences of our actions. Responsible design, responsible production, responsible selling, responsible consumption. Responsible choices of who we work with. Ensuring the right human and physical resources are available and good working conditions within our own organisations. Stable management and accountability."
 
 
-  %fieldset.field-three
+  %fieldset.field-three.field
     %legend.legend  Step 3
     %div.fieldset-wrapper
       .row
@@ -91,7 +93,7 @@
         = c.input :service5, label: "Service 5", placeholder: "A service you are interested in providing as part of TCBL and to whom."
 
 
-  %fieldset.field-four
+  %fieldset.field-four.field
     %legend.legend  Step 4 
     %div.fieldset-wrapper
       .row
@@ -113,7 +115,7 @@
       = f.simple_fields_for :criteria_attributes do |c|
         = c.input :network, label: "Description & Links", hint: 'Explain briefly your existing collaborations.'
     
-  %fieldset.field-five
+  %fieldset.field-five.field
     %legend.legend  Step 5 
     %div.fieldset-wrapper
       .row
@@ -178,7 +180,7 @@
     -# = f.association :machines, collection: Machine.includes(:brand).map{|m| ["#{m.brand} - #{m.name}", m.id]}, hint: "We are doing a lot of work with the list of machines. Soon you will be able to add your own machines to the directory, but until then maybe you have some in our list?"
 
     //= f.input :tools_list, hint: "Please list any machines that you have so that we can add them to the directory.", input_html: { style: "height: 8em" }, placeholder: "e.g. Makerbot Industries - Makerbot 2"
-  %fieldset.field-six
+  %fieldset.field-six.field
     %legend.legend  Step 6 
     %div.fieldset-wrapper
       .row
