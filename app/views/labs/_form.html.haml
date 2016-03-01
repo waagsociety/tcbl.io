@@ -64,7 +64,7 @@
         %label.radio{style: "width: 80%;"}
           The submitted lab commits to actively comply to the TCBL principles .
         
-      = f.simple_fields_for :criteria_attributes do |c|
+      = f.simple_fields_for :criteria do |c|
         = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Creative exploration of new paths, roles, social constructs and business models. Learning-driven action research as a way of life, including learning by errors and mistakes. Learning as both an individual and collective process of knowledge creation. Reframing and rethinking what exists, respect for different disciplines and methods. Trying new experiences, playfulness, randomness, having the courage to try radically new approaches"
         = c.input :principle2, label: "Viability principle", placeholder: "How do you implement the Viability Principle in your lab?", hint: "Things should stand on their own feet. But they should also do so by increasing the prosperity of businesses and the well being of communities; this is our ultimate goal. Importance of both monetary and non-monetary transactions."
         = c.input :principle3, label: "Durability principle", placeholder: "How do you implement the Durability Principle in your lab?", hint: "Commitment to the environment, towards circular economy and zero km. Durable and resilient systems. Above all, reduce consumption and a consumption-driven culture, work towards sustainable fashion. Reduce waste, design for durable relations, focus on reuse and recycling, save water, reduce emissions (atmosphere and toxic waste)."
@@ -85,7 +85,7 @@
 
       = f.input :capabilities, as: 'check_boxes', inline_label: true, item_wrapper_class: 'checkbox_container', label: false, collection: Lab::Capabilities.map{|f| [ I18n.t("capabilities.#{f}"), f]}, checked: f.object.capabilities, hint: "Intended members, participants and service users.", label: "Target groups"
 
-      = f.simple_fields_for :criteria_attributes do |c|
+      = f.simple_fields_for :criteria do |c|
         = c.input :service1, label: "Service 1", placeholder: "A service you are interested in providing as part of TCBL and to whom."
         = c.input :service2, label: "Service 2", placeholder: "A service you are interested in providing as part of TCBL and to whom."
         = c.input :service3, label: "Service 3", placeholder: "A service you are interested in providing as part of TCBL and to whom."
@@ -112,7 +112,7 @@
       %p.hint Collaborators, employees, researchers and participants will be able to request to be linked to this lab once the lab is approved.
 
       %p.hint Relevant network and collaborating institutes
-      = f.simple_fields_for :criteria_attributes do |c|
+      = f.simple_fields_for :criteria do |c|
         = c.input :network, label: "Description & Links", hint: 'Explain briefly your existing collaborations.'
 
       .row
