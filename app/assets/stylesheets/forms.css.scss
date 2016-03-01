@@ -21,7 +21,7 @@ fieldset {
   background: #FEFEFE;
   fieldset {
     padding: 5px;
-    background: none;
+    background: white;
     border: none;
     legend {
       // font-weight: normal;
@@ -84,6 +84,7 @@ fieldset {
   margin-bottom: 1em;
   ul, li {
     list-style: none;
+    display: block;
   }
   h2 {
     font-weight: bold;
@@ -113,104 +114,33 @@ fieldset {
 #new_lab fieldset {
   background-color: white;
   max-width: 1000px;
+  border: none;
 }
-
-/*stacking fieldsets above each other*/
-
-// .fieldset-wrapper {
-
-// }
-
-// #new_lab fieldset.field-one {
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   z-index: 17;
-//   min-height: 1720px;
-//   max-width: 1000px;
-//   min-width: 1000px;
-// }
-
-// #new_lab fieldset.field-two {
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   z-index: 16;
-//   min-height: 1720px;
-//   max-width: 1000px;
-//   min-width: 1000px;
-// }
-
-// #new_lab fieldset.field-three {
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   z-index: 15.5;
-//   min-height: 1720px;
-//   max-width: 1000px;
-//   min-width: 1000px;
-// }
-
-// #new_lab fieldset.field-four {
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   z-index: 15;
-//   min-height: 1720px;
-//   max-width: 1000px;
-//   min-width: 1000px;
-// }
-
-// #new_lab fieldset.field-five {
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   z-index: 10;
-//   min-height: 1720px;
-//   max-width: 1000px;
-//   min-width: 1000px;
-// }
-
-// #new_lab fieldset.field-six {
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   z-index: 9;
-//   min-height: 1720px;
-//   max-width: 1000px;
-//   min-width: 1000px;
-// }
-
-/* Spacing out the tabs */
 
 #new_lab fieldset legend {
-  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
-#new_lab fieldset.field-two legend {
-  left: 103px;
+/* Form breadcrumbs */
 
+.form-breadcrumbs {
+  display: flex;
+}
+ 
+.form-breadcrumbs li {
+  display: inline-flex;
+  padding: 1em 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ccc;
 }
 
-#new_lab fieldset.field-three legend {
-  left: 206px;
-
+li.crumb-active {
+  color: hsl(350, 78%, 75%);
 }
 
-#new_lab fieldset.field-four legend {
-  left: 309px;
-
-}
-
-#new_lab fieldset.field-five legend {
-  left: 412px;
-
-}
-
-#new_lab fieldset.field-six legend {
-  left: 515px;
-
-}
 
 /* Classes to display and hide fields */
 
