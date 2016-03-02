@@ -12,6 +12,7 @@
   font-size: 0.8em;
   font-style: italic;
   color: #AAA;
+  background-color: hsl(8, 75%, 89%);
 
 }
 
@@ -36,7 +37,6 @@
 #homepage-map {
   background-size: cover;
   background-position: top center;
-  //background-image: url('TCBL-map.jpg');
 }
 
 .a-home {
@@ -44,7 +44,7 @@
   #homepage-map {
     .leaflet-map-pane { pointer-events: none; }
     width: 100%;
-    margin-top: -15px;
+    margin-top: 0;
     // height: 220px;
     background: #F8D3CD;//light pink
     padding: 4em 2em;
@@ -54,6 +54,10 @@
 
   .fa-chevron-right {
     vertical-align: middle;
+  }
+
+  .who-it-for-h2 {
+    color: black;
   }
 
   h2 {
@@ -145,8 +149,13 @@
     }
   }
 
-  .tcbl-icon {
-    padding: 0 1em;
+.signup-button {
+  margin: 2em;
+}
+
+  .tcbl-icon img{
+    border-radius: 200px;
+    border: 1px solid white;
   }
 
   .stripe {
@@ -213,9 +222,9 @@
       // visibility: hidden;
       width: 100%;
     }
-    background: url('bg03.jpg') no-repeat center center fixed;
+    background: url('bg02.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: 500px;  
+    height: 550px;  
     box-shadow: 1px 10px 10px rgba(100, 100, 100, 0.15);
   }
 
@@ -243,9 +252,9 @@
   }
 
   .splash-image {
-    background: url('bg02.jpg') no-repeat center center fixed; 
+    background: url('bg03.jpg') no-repeat center center fixed; 
     background-size: cover;
-    height: 500px; 
+    height: 550px; 
     box-shadow: 1px 10px 10px rgba(100, 100, 100, 0.15);
   }
 
