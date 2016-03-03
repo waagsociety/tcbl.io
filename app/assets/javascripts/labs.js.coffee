@@ -45,7 +45,7 @@ ready = ->
   .click ->
     $('.field-two').removeClass 'active-field' 
     $('.field-one').addClass 'active-field' 
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-two').removeClass 'crumb-active'
     $('.crumb-one').addClass 'crumb-active'
 
@@ -54,7 +54,7 @@ ready = ->
   .click ->
     $('.field-three').removeClass 'active-field'
     $('.field-two').addClass 'active-field' 
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-three').removeClass 'crumb-active'
     $('.crumb-two').addClass 'crumb-active'
 
@@ -63,7 +63,7 @@ ready = ->
   .click ->
     $('.field-four').removeClass 'active-field'
     $('.field-three').addClass 'active-field' 
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-four').removeClass 'crumb-active'
     $('.crumb-three').addClass 'crumb-active'
 
@@ -72,7 +72,7 @@ ready = ->
   .click ->
     $('.field-five').removeClass 'active-field'
     $('.field-four').addClass 'active-field' 
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-five').removeClass 'crumb-active'
     $('.crumb-four').addClass 'crumb-active'
 
@@ -81,7 +81,7 @@ ready = ->
   .click ->
     $('.field-six').removeClass 'active-field'
     $('.field-five').addClass 'active-field' 
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-six').removeClass 'crumb-active'
     $('.crumb-five').addClass 'crumb-active'
 
@@ -92,7 +92,7 @@ ready = ->
   .click ->
     $('.field-two').addClass 'active-field'
     $('.field-one').removeClass 'active-field'
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-two').addClass 'crumb-active'
     $('.crumb-one').removeClass 'crumb-active'
 
@@ -101,7 +101,7 @@ ready = ->
   .click ->
     $('.field-three').addClass 'active-field'
     $('.field-two').removeClass 'active-field'
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-three').addClass 'crumb-active'
     $('.crumb-two').removeClass 'crumb-active'
 
@@ -110,7 +110,7 @@ ready = ->
   .click ->
     $('.field-four').addClass 'active-field'
     $('.field-three').removeClass 'active-field' 
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-four').addClass 'crumb-active'
     $('.crumb-three').removeClass 'crumb-active'
 
@@ -119,7 +119,7 @@ ready = ->
   .click ->
     $('.field-five').addClass 'active-field'
     $('.field-four').removeClass 'active-field'
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-five').addClass 'crumb-active'
     $('.crumb-four').removeClass 'crumb-active'
 
@@ -128,7 +128,7 @@ ready = ->
   .click ->
     $('.field-six').addClass 'active-field'
     $('.field-five').removeClass 'active-field'
-    $('body').scrollTop(0);
+    window.scrollTo(0, 0)
     $('.crumb-six').addClass 'crumb-active'
     $('.crumb-five').removeClass 'crumb-active'
 
