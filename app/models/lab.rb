@@ -133,7 +133,7 @@ class Lab < ActiveRecord::Base
     if avatar_src.present?
       avatar_src
     else
-      'https://i.imgur.com/iymHWkm.png'
+      '/assets/big-avatar.png'
     end
   end
 

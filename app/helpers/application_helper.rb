@@ -42,10 +42,9 @@ module ApplicationHelper
   end
 
 # New Link to Avatar Laurie S 
-
   def hocho(img, options)
-    return if img.blank?
-    img = "big-avatar.png"
+    return "big-avatar.png" if img.blank?
+	return img
   end
 
   # def hocho(img, options)
