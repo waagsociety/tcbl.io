@@ -7,34 +7,10 @@
       %span.info-box-title
       %p= t("views.home.fab_labs_description", fab_foundation: (link_to "TCBL", "http://www.protect-tcbl.eu") ).html_safe
 
-#homepage-map
-  .filter
-  #homepage-search
-    %p= t("views.home.show_me_fab_labs", default: "Show Me Textile Labs")
-    = link_to labs_path, class: 'button ' do
-      
-      = t("views.home.around_the_world")
-
-#main-image
-  .row
-    .columns.large-12.info-box
-      %h2="Re-thinking the Industry"
-      %span.info-box-title
-      %p="We're taking advantage of new technology to rebuild from the ground up as we bring together traditional craftsmanship with 21st century services. Our new industrial scenarios rely on customer-driven production as we apply innovative methods, materials, and tools. Our business models allow for keeping design and production local. We focus on diversity and excellence in niche markets."
-
-.credit{style: 'background: #FFF'}
-  .row
-    .columns.large-12.text-right
-      .photo-from
-        Concept and photo from
-        = link_to "Fab Lab Amsterdam","/Waag Society"\
-        ,
-        = link_to "Netherlands", "/labs?country=is"
-
 .whos-it-for.stripe
   .row
     .columns.large-12
-      %h2= t("views.home.who_is_it_for")
+      %h2.who-it-for-h2= t("views.home.who_is_it_for")
 
     .columns.large-12
       .row.collapse.case-studies
@@ -58,12 +34,36 @@
 
   .row
     .columns.large-12{style: "text-align: center"}
-
-
-      = link_to signup_path, class: 'button big-signup success' do
-        .glyphicon.glyphicon-check
+      %h2.who-it-for-h2="Interested in joining us? Sign up below!"
+      = link_to signup_path, class: 'button big-signup success signup-button' do 
         Sign up
 
+
+
+#main-image
+  .row
+    .columns.large-12.info-box
+      %h2="Re-thinking the Industry"
+      %span.info-box-title
+      %p="We're taking advantage of new technology to rebuild from the ground up as we bring together traditional craftsmanship with 21st century services. Our new industrial scenarios rely on customer-driven production as we apply innovative methods, materials, and tools. Our business models allow for keeping design and production local. We focus on diversity and excellence in niche markets."
+
+.credit{style: 'background: hsl(8, 75%, 89%);'}
+  .row
+    .columns.large-12.text-right
+      .photo-from
+        Concept and photo from
+        = link_to "Fab Lab Amsterdam","/Waag Society"\
+        ,
+        = link_to "Netherlands", "/labs?country=is"
+
+
+#homepage-map
+  .filter
+  #homepage-search
+    %p= t("views.home.show_me_fab_labs", default: "Show Me Textile Labs")
+    = link_to labs_path, class: 'button ' do
+      
+      = t("views.home.around_the_world")
 
 .stripe.what-can-you-do
   .features

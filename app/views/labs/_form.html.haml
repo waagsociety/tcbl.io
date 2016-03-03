@@ -1,3 +1,11 @@
+%ul.form-breadcrumbs
+  %li.crumb.crumb-one.crumb-active Step 1
+  %li.crumb.crumb-two Step 2
+  %li.crumb.crumb-three Step 3
+  %li.crumb.crumb-four Step 4
+  %li.crumb.crumb-five Step 5
+  %li.crumb.crumb-six Step 6
+
 = simple_form_for lab, html: { class: 'form-horizontal' } do |f|
   = render 'form_errors', resource: lab
 
@@ -5,7 +13,7 @@
 
     %fieldset.field-one.field.active-field
       %legend.legend 
-        Step 1 
+        / Step 1 
       %div.fieldset-wrapper  
         = f.input :name, label: 'Lab Name'
         = f.label :name, 'Type of Lab'
@@ -44,7 +52,8 @@
 
   
   %fieldset.field-two.field
-    %legend.legend  Step 2 
+    %legend.legend  
+    / Step 2 
 
     = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
     %div.fieldset-wrapper
@@ -89,7 +98,8 @@
           %span.button.next-four Go to Step 4
 
   %fieldset.field-four.field
-    %legend.legend  Step 4 
+    %legend.legend  
+    / Step 4 
     %div.fieldset-wrapper
 
       -# contact
@@ -112,7 +122,8 @@
           %span.button.next-five Go to Step 5
     
   %fieldset.field-five.field
-    %legend.legend  Step 5 
+    %legend.legend  
+    / Step 5 
     %div.fieldset-wrapper
 
     .address
@@ -178,7 +189,8 @@
 
     //= f.input :tools_list, hint: "Please list any machines that you have so that we can add them to the directory.", input_html: { style: "height: 8em" }, placeholder: "e.g. Makerbot Industries - Makerbot 2"
   %fieldset.field-six.field
-    %legend.legend  Step 6 
+    %legend.legend  
+    / Step 6 
     %div.fieldset-wrapper
       
       %p.hint Please review your information and click "submit". The partner labs will review your submition as soon as possible.

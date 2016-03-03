@@ -45,30 +45,45 @@ ready = ->
   .click ->
     $('.field-two').removeClass 'active-field' 
     $('.field-one').addClass 'active-field' 
+    $('body').scrollTop(0);
+    $('.crumb-two').removeClass 'crumb-active'
+    $('.crumb-one').addClass 'crumb-active'
 
   $('.three-back').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-three').removeClass 'active-field'
     $('.field-two').addClass 'active-field' 
+    $('body').scrollTop(0);
+    $('.crumb-three').removeClass 'crumb-active'
+    $('.crumb-two').addClass 'crumb-active'
 
   $('.four-back').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-four').removeClass 'active-field'
     $('.field-three').addClass 'active-field' 
+    $('body').scrollTop(0);
+    $('.crumb-four').removeClass 'crumb-active'
+    $('.crumb-three').addClass 'crumb-active'
 
   $('.five-back').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-five').removeClass 'active-field'
     $('.field-four').addClass 'active-field' 
+    $('body').scrollTop(0);
+    $('.crumb-five').removeClass 'crumb-active'
+    $('.crumb-four').addClass 'crumb-active'
 
   $('.six-back').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-six').removeClass 'active-field'
     $('.field-five').addClass 'active-field' 
+    $('body').scrollTop(0);
+    $('.crumb-six').removeClass 'crumb-active'
+    $('.crumb-five').addClass 'crumb-active'
 
 # Next Buttons
 
@@ -77,35 +92,51 @@ ready = ->
   .click ->
     $('.field-two').addClass 'active-field'
     $('.field-one').removeClass 'active-field'
+    $('body').scrollTop(0);
+    $('.crumb-two').addClass 'crumb-active'
+    $('.crumb-one').removeClass 'crumb-active'
 
   $('.next-three').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-three').addClass 'active-field'
     $('.field-two').removeClass 'active-field'
+    $('body').scrollTop(0);
+    $('.crumb-three').addClass 'crumb-active'
+    $('.crumb-two').removeClass 'crumb-active'
 
   $('.next-four').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-four').addClass 'active-field'
     $('.field-three').removeClass 'active-field' 
+    $('body').scrollTop(0);
+    $('.crumb-four').addClass 'crumb-active'
+    $('.crumb-three').removeClass 'crumb-active'
 
   $('.next-five').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-five').addClass 'active-field'
     $('.field-four').removeClass 'active-field'
+    $('body').scrollTop(0);
+    $('.crumb-five').addClass 'crumb-active'
+    $('.crumb-four').removeClass 'crumb-active'
 
   $('.next-six').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-six').addClass 'active-field'
     $('.field-five').removeClass 'active-field'
+    $('body').scrollTop(0);
+    $('.crumb-six').addClass 'crumb-active'
+    $('.crumb-five').removeClass 'crumb-active'
 
 # Find Error Box, Display All Fields, Remove Buttons
 
   if $('#error-message').length > 0
-    $('.field').addClass 'active-field '
+    $('.field').addClass 'active-field'
+    $('.crumb').addClass 'crumb-active'
     $('.next-two').addClass 'display-none'
     $('.next-three').addClass 'display-none'
     $('.next-four').addClass 'display-none'
