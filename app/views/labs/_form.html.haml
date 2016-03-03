@@ -111,9 +111,8 @@
 
       %p.hint Collaborators, employees, researchers and participants will be able to request to be linked to this lab once the lab is approved.
 
-      %p.hint Relevant network and collaborating institutes
       = f.simple_fields_for :criteria do |c|
-        = c.input :network, label: "Description & Links", hint: 'Explain briefly your existing collaborations.'
+        = c.input :network, label: "Relevant network and collaborating institutes. Please provide descriptions & links.", hint: 'Explain briefly your existing collaborations.'
 
       .row
         .columns.large-3
