@@ -229,6 +229,7 @@
   }
 
 
+
   .info-box {
     font-size: 18px;
     font-weight: 300;
@@ -251,12 +252,60 @@
     }
   }
 
+
+  .info-box.video {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35rem;
+    color: #FFF;
+    background-color: rgba(14, 15, 15, 0.32);
+    padding: 2em;
+    margin: 75px auto;
+    
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 0px;
+    }
+
+    a {
+      color: white;
+      border: none;
+      margin: 1em;
+    }
+    a:hover{
+      color: white;
+    }
+
+  }
+
   .splash-image {
     background: url('bg03.jpg') no-repeat center center fixed; 
     background-size: cover;
     height: 550px; 
     box-shadow: 1px 10px 10px rgba(100, 100, 100, 0.15);
   }
+
+  .video-image {
+    position: relative;
+    background: url('bg04.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    height: 550px; 
+    box-shadow: 1px 10px 10px rgba(100, 100, 100, 0.15);
+  }
+
+  .video-image::after {
+    // content: "";
+    // display: block;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // height: 100%;
+    // width: 100%;
+    // z-index: 10;
+    // background-color: rgba(0,0,0,0.2);
+}
 
     .case-studies {
       background: #FFF;
