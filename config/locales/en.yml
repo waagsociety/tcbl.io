@@ -42,11 +42,7 @@ en:
       welcome:              "Welcome"
       around_the_world:     "Around the world"
       whats_a_fab_lab:      "I'm new here. What are Textile & Business Labs?"
-      fab_labs_description: "Textile & Clothing Business Labs provide widespread access to modern means
-                            for invention. You can find more
-                            information about Textile Labs on the
-                            <a href='http://www.project-tcbl.eu'>TCBL</a>
-                            Website."
+      fab_labs_description: "This is a beta test site for TCBL Labs. For the main TCBL website click <a href='http://www.project-tcbl.eu'>here</a>."
       who_is_it_for:        "Who is TCBL for?"
       what_can_i_do:        "What can I do?"
       lab_profiles:         "Lab profiles"
