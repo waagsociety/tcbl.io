@@ -12,17 +12,17 @@
   - if lab.new_record?
 
     %fieldset.field-one.field.active-field
-      %legend.legend 
-        / Step 1 
-      %div.fieldset-wrapper  
+      %legend.legend
+        / Step 1
+      %div.fieldset-wrapper
         = f.input :name, label: 'Lab Name'
         = f.label :name, 'Type of Lab'
-      
+
         .radio-group
           - Lab::Kinds.each_with_index do |m, index|
             %span
-              = f.radio_button :kind, index 
-    
+              = f.radio_button :kind, index
+
               %label.radio{style: "width: 160px;"}
                 = m.humanize.titleize
 
@@ -35,7 +35,7 @@
             .columns.large-3
               %span.prefix= "#{Rails.application.config.url}/"
             .columns.large-9= f.input_field :slug, class: 'form-control'
-    
+
         .row
           .columns.large-3= image_tag hocho(lab.avatar, "o=t&q=80&d=300x300&"), class: '', itemprop: "logo"
           .columns.large-9= f.input :avatar_src, input_html: { class: 'fp', data: { fp_store_location: 'S3', fp_store_path: 'labs/avatars/', fp_store_container: ENV['S3_BUCKET'] } }, label: 'Lab profile picture', hint: "This will be a square image next shown next to the lab name throughout the site"
@@ -50,10 +50,10 @@
         .columns.large-3
           %span.button.next-two Go to STEP 2
 
-  
+
   %fieldset.field-two.field
-    %legend.legend  
-    / Step 2 
+    %legend.legend
+    / Step 2
 
     = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab"
     %div.fieldset-wrapper
@@ -63,15 +63,15 @@
         = f.radio_button :tools, 1
         %label.radio{style: "width: 80%;"}
           The submitted lab commits to actively comply to the TCBL principles .
-        
+
       = f.simple_fields_for :criteria do |c|
-        = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Creative exploration of new paths, roles, social constructs and business models. Learning-driven action research as a way of life, including learning by errors and mistakes. Learning as both an individual and collective process of knowledge creation. Reframing and rethinking what exists, respect for different disciplines and methods. Trying new experiences, playfulness, randomness, having the courage to try radically new approaches"
-        = c.input :principle2, label: "Viability principle", placeholder: "How do you implement the Viability Principle in your lab?", hint: "Things should stand on their own feet. But they should also do so by increasing the prosperity of businesses and the well being of communities; this is our ultimate goal. Importance of both monetary and non-monetary transactions."
-        = c.input :principle3, label: "Durability principle", placeholder: "How do you implement the Durability Principle in your lab?", hint: "Commitment to the environment, towards circular economy and zero km. Durable and resilient systems. Above all, reduce consumption and a consumption-driven culture, work towards sustainable fashion. Reduce waste, design for durable relations, focus on reuse and recycling, save water, reduce emissions (atmosphere and toxic waste)."
-        = c.input :principle4, label: "Multiplicity principle", placeholder: "How do you implement the Multiplicity Principle in your lab?", hint: "Value of different cultures, traditions, opinions. Roles for both professionals and amateurs, different labour specialisations. Designing for diversity of needs and tastes. Allowing for multiple business models to co-exist and complement each other."
-        = c.input :principle5, label: "Openness principle", placeholder: "How do you implement the Openness Principle in your lab?", hint: "Trusting others by sharing of resources and information. Search for common processes, platforms and standards: interoperability. Participatory decision-making, using social media, connecting with others. Transparency of practices, supply chains, cost structures, etc. Sharing of new insights and information. Recognition of the contributions of all (age, gender, etc.) overcoming marginality."
-        = c.input :principle6, label: "Respect principle", placeholder: "How do you implement the Respect Principle in your lab?", hint: "Protection of privacy, authorship, and IP. Dignity of the individual, power of social knowledge. Value of place and territories. Caring for things, establishing emotional links with the clothes we wear and looking after them. Respect for those who make the things we have. Equity of business relations, payment of a Fair Price. Capacity building wherever we go."
-        = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Commitment to reliable, trustworthy, professional behaviour. Accountability for the consequences of our actions. Responsible design, responsible production, responsible selling, responsible consumption. Responsible choices of who we work with. Ensuring the right human and physical resources are available and good working conditions within our own organisations. Stable management and accountability."
+        = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Explorative, innovative character. Outcomes feed into new, replicable business models. Exploring new business models by reframing."
+        = c.input :principle2, label: "Viability principle", placeholder: "How do you implement the Viability Principle in your lab?", hint: "Economic sustainability of lab structure. Value creation to the community: public events, communication and awareness. Including monetary and non-monetary transactions."
+        = c.input :principle3, label: "Durability principle", placeholder: "How do you implement the Durability Principle in your lab?", hint: "Explore ways to reduce waste.Work with low-impact materials and processes. Work towards emotionally durable design."
+        = c.input :principle4, label: "Multiplicity principle", placeholder: "How do you implement the Multiplicity Principle in your lab?", hint: "Open to both professional and non-professional competences. Gender equivalency and open opportunity structures. Exploration of un-met and un-expressed needs."
+        = c.input :principle5, label: "Openness principle", placeholder: "How do you implement the Openness Principle in your lab?", hint: "Open and freely accessible participation. Sharing knowledge, findings and networks. Interoperable and where possible open source technology and software."
+        = c.input :principle6, label: "Respect principle", placeholder: "How do you implement the Respect Principle in your lab?", hint: "Tools and processes that empower users. Restore the dignity, value and satisfaction of productive making activities. Fair and ethical operations."
+        = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Spaces and equipment in a safe and secure environment. Availability of support knowledge for processes, machinery, etc. Consultancy and follow-up to participants interested in business development."
       .row
         .columns.large-3
           %span.button.two-back Go Back
@@ -98,8 +98,8 @@
           %span.button.next-four Go to Step 4
 
   %fieldset.field-four.field
-    %legend.legend  
-    / Step 4 
+    %legend.legend
+    / Step 4
     %div.fieldset-wrapper
 
       -# contact
@@ -119,10 +119,10 @@
           %span.button.four-back Go Back
         .columns.large-3
           %span.button.next-five Go to Step 5
-    
+
   %fieldset.field-five.field
-    %legend.legend  
-    / Step 5 
+    %legend.legend
+    / Step 5
     %div.fieldset-wrapper
 
     .address
@@ -145,13 +145,13 @@
             = f.input :latitude, as: :hidden, input_html: { data: {geo: "lat"}}
             = f.input :longitude, as: :hidden, input_html: { data: {geo: "lng"}}
             = f.input :zoom, as: :hidden
-        
+
           %hr/
-          
+
           = f.input :address_notes, label:'Hosted by', hint: 'Please fill in if you are hosted by  an organization or company. Or any details that might be useful for someone trying to find the lab. For example, "Go up the stairs and through the red door".'
 
           %hr/
-          
+
           %p.hint Lab Contact Details
           = f.input :phone, hint: "A general enquiries phone number for the lab", label: "Lab Phone Number"
           = f.input :email, hint: "A general enquiries email address for the lab", label: "Lab Email Address"
@@ -188,10 +188,10 @@
 
     //= f.input :tools_list, hint: "Please list any machines that you have so that we can add them to the directory.", input_html: { style: "height: 8em" }, placeholder: "e.g. Makerbot Industries - Makerbot 2"
   %fieldset.field-six.field
-    %legend.legend  
-    / Step 6 
+    %legend.legend
+    / Step 6
     %div.fieldset-wrapper
-      
+
       %p.hint Please review your information and click "submit". The partner labs will review your submition as soon as possible.
       = f.submit (lab.new_record? ? 'Submit' : 'Update Lab'), class: 'button'
 
