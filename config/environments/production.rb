@@ -86,4 +86,9 @@ Fablabs::Application.configure do
   config.url = 'http://wg136.waag.org'
 
   config.action_mailer.default_url_options = { :host => "tcbl.eu", protocol: "http" }
+  config.action_mailer.smtp_settings = {
+    :address => ENV['EMAIL_ADDRESS'],
+    :port => ENV['EMAIL_PORT'].to_i,
+    :domain => ENV['EMAIL_DOMAIN'],
+  }
 end
