@@ -18,10 +18,10 @@ Fablabs::Application.configure do
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   config.action_controller.perform_caching = true
-  config.cache_store = :redis_store, 'redis://127.0.0.1:6379/0/cache', { expires_in: 15.minutes }
+  config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 15.minutes }
   config.action_dispatch.rack_cache = {
-    metastore:   'redis://127.0.0.1:6379/0/metastore',
-    entitystore: 'redis://127.0.0.1:6379/0/entitystore'
+    metastore:   'redis://localhost:6379/0/metastore',
+    entitystore: 'redis://localhost:6379/0/entitystore'
   }
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
@@ -45,7 +45,7 @@ Fablabs::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = false
+  config.force_ssl = false 
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
