@@ -9,7 +9,8 @@
 = simple_form_for lab, html: { class: 'form-horizontal' } do |f|
   = render 'form_errors', resource: lab
 
-  - if lab.new_record?
+  -# because Haml®
+  - if true
 
     %fieldset.field-one.field.active-field
       %legend.legend
