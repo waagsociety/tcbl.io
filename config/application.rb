@@ -58,7 +58,7 @@ module Fablabs
     }
 
 
-    config.url = 'http://tcbl.eu'
+    config.url = 'http://labs.tcbl.eu'
 
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
