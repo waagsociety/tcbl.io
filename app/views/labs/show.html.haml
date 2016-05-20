@@ -9,47 +9,37 @@
         = render "breadcrumbs", lab: @lab
 
     .row.header
-      .columns.large-4.bio= render "bio", lab: @lab
-      .columns.large-8= render "minimap", lab: @lab if @lab.longitude
-
-  .row.main
-    .columns.large-8.content
-      .lab-description{itemprop: "description"}= simple_format @lab.description
-      - if @lab.header_image_src.present?
-        = image_tag hocho(@lab.header_image_src, "o=r&d=800"), class: 'big-picture', itemprop: "image"
-
-      - if current_or_null_user.can_read?(Event) and @events.length > 0
-        = render("events", lab: @lab, events: @events)
-
-      = render("employees", lab: @lab, employees: @employees)
-
-      - if @machines.length > 0
-        = render("machines", lab: @lab, machines: @machines)
-
-      - if current_or_null_user.can_read?(Academic)
-        = render("academics", lab: @lab, academics: @academics)
-
-
-    .columns.large-4.sidebar
-      = render "nearby", lab: @lab, nearby_labs: @nearby_labs
-      - cache ["side-v2-#{I18n.locale}", @lab] do
+      .columns.large-3.bio
+        = render "bio", lab: @lab
         = render "links", links: @lab.links
+        - if @machines.length > 0
+          = render("machines", lab: @lab, machines: @machines)
         - if @lab.capabilities.length > 0
           = render "capabilities", capabilities: @lab.capabilities
+      .columns.large-6
+        = render "minimap", lab: @lab if @lab.longitude
+        .lab-description{itemprop: "description"}= simple_format @lab.description
+        - if @lab.header_image_src.present?
+          = image_tag hocho(@lab.header_image_src, "o=r&d=800"), class: 'big-picture', itemprop: "image"
+        = render("employees", lab: @lab, employees: @employees)
+        #disqus_thread
+        :javascript
+          /* * * CONFIGURATION VARIABLES * * */
+          //TODO: create on disqus
+          var disqus_shortname = 'tcblio';
 
-.row
-  #disqus_thread
-  :javascript
-    /* * * CONFIGURATION VARIABLES * * */
-    //TODO: create on disqus
-    var disqus_shortname = 'tcblio';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  %noscript
-    Please enable JavaScript to view the
-    %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        %noscript
+          Please enable JavaScript to view the
+          %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+      .columns.large-3.bio
+        - if current_or_null_user.can_read?(Event) and @events.length > 0
+          = render("events", lab: @lab, events: @events)
+        - if current_or_null_user.can_read?(Academic)
+          = render("academics", lab: @lab, academics: @academics)
+        = render "nearby", lab: @lab, nearby_labs: @nearby_labs
