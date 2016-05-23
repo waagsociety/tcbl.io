@@ -1,10 +1,10 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright (c) 2012 James Allardice
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
- * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
  * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -222,8 +222,8 @@
         } else {
 
             // If an element was passed in, get all affected descendants. Otherwise, get all affected elements in document
-            handleInputs = node ? node.getElementsByTagName("input") : inputs;
-            handleTextareas = node ? node.getElementsByTagName("textarea") : textareas;
+            handleInputs = node ? node.getElementsByTagName("input") : inputs || [];
+            handleTextareas = node ? node.getElementsByTagName("textarea") : textareas || [];
 
             // Run the callback for each element
             for (i = 0, len = handleInputs.length + handleTextareas.length; i < len; i++) {
