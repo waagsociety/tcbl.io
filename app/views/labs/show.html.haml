@@ -22,21 +22,6 @@
         - if @lab.header_image_src.present?
           = image_tag hocho(@lab.header_image_src, "o=r&d=800"), class: 'big-picture', itemprop: "image"
         = render("employees", lab: @lab, employees: @employees)
-        #disqus_thread
-        :javascript
-          /* * * CONFIGURATION VARIABLES * * */
-          //TODO: create on disqus
-          var disqus_shortname = 'tcblio';
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        %noscript
-          Please enable JavaScript to view the
-          %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
       .columns.large-3.bio
         - if current_or_null_user.can_read?(Event) and @events.length > 0
           = render("events", lab: @lab, events: @events)
