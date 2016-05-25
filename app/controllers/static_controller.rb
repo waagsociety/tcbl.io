@@ -6,6 +6,9 @@ class StaticController < ApplicationController
   def about
   end
 
+  def principles
+  end
+
   def country_guess
     render text: (current_country ? "I think you are in #{current_country}" : "I don't know where you are")
   end
