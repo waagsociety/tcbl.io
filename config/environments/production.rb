@@ -45,7 +45,7 @@ Fablabs::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = false 
+  config.force_ssl = false
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -84,4 +84,11 @@ Fablabs::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.url = 'http://wg136.waag.org'
+
+  config.action_mailer.default_url_options = { :host => "labs.tcbl.eu", protocol: "http" }
+  config.action_mailer.smtp_settings = {
+    :address => ENV['EMAIL_ADDRESS'],
+    :port => ENV['EMAIL_PORT'].to_i,
+    :domain => ENV['EMAIL_DOMAIN'],
+  }
 end

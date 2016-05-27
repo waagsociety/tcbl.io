@@ -22,7 +22,7 @@ Fablabs::Application.routes.draw do
 
     get "verify_email(/:id)", to: "users#verify_email", as: "verify_email"
 
-    %w(about choose_locale country_guess).each do |action|
+    %w(about principles choose_locale country_guess).each do |action|
       get action => "static##{action}", as: action
     end
 
@@ -132,7 +132,7 @@ Fablabs::Application.routes.draw do
 
   #end
 
-	
+
   constraints subdomain: 'api' do
     get '/api' => 'static#api'
     namespace :api, path: '' do
