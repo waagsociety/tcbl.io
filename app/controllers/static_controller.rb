@@ -6,6 +6,9 @@ class StaticController < ApplicationController
   def about
   end
 
+  def what
+  end
+
   def principles
   end
 
