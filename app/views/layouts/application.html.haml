@@ -21,7 +21,7 @@
     %link{rel: "stylesheet", href: "https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css"}
     %link{rel: "stylesheet", href: "https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css"}
 
-    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Raleway:400,500,700,300|Open+Sans" 
+    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Raleway:400,500,700,300|Open+Sans"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "//maps.googleapis.com/maps/api/js?sensor=false&libraries=places", "//api.filepicker.io/v1/filepicker.js"
     = javascript_include_tag "https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js"
@@ -42,7 +42,7 @@
       = yield
 
     %footer.tcbl-footer
-      .row 
+      .row
         .columns.large-12
           .split
       .row
@@ -64,5 +64,3 @@
             %li= locale_link_to "Nederlands", "nl"
             -# %li= locale_link_to "Português", "pt"
             %li= locale_link_to "日本語", "ja"
-
-    = render "application/footer_scripts"
