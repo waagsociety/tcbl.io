@@ -1406,7 +1406,7 @@ $topbar-bg-color: $white-smoke;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: rem-calc(55);
+$topbar-height: rem-calc(100);
 $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1428,7 +1428,7 @@ $topbar-link-bg-active: $topbar-bg;
 $topbar-link-bg-active-hover: $topbar-bg;
 $topbar-link-font-family: Arial;
 $topbar-link-text-transform: none;
-$topbar-link-padding: ($topbar-height / 2);
+$topbar-link-padding: ($topbar-height / 4);
 $topbar-back-link-size: rem-calc(18);
 $topbar-link-dropdown-padding: rem-calc(30);
 $topbar-button-font-size: .75rem;
