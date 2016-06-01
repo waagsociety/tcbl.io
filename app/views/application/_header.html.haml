@@ -13,11 +13,11 @@
     %section.top-bar-section
       %ul.left
         -# %li.divider
-        %li.has-form
-          = form_tag 'search', class: 'navbar-form navbar-left', method: 'get' do
-            - if params[:country].present?
-              = hidden_field_tag 'country', params[:country]
-            = text_field_tag 'q', params[:q], class: 'form-control', autocomplete: 'off', placeholder: t("views.header.search"), id: 'search-box'
+        -# %li.has-form
+        -#   = form_tag 'search', class: 'navbar-form navbar-left', method: 'get' do
+        -#     - if params[:country].present?
+        -#       = hidden_field_tag 'country', params[:country]
+        -#     = text_field_tag 'q', params[:q], class: 'form-control', autocomplete: 'off', placeholder: t("views.header.search"), id: 'search-box'
         %li.has-dropdown{class: ('active' if controller_name == 'labs')}
           = link_to t("views.header.labs"), labs_path, class: 'top-link'
           %ul.dropdown
