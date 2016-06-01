@@ -132,34 +132,31 @@ Fablabs::Application.routes.draw do
 
   #end
 
+  get '/api' => 'static#api'
+  namespace :api, path: '/api' do
+    namespace :v0 do
+      get 'me' => 'users#me'
+      get 'users' => 'users#search'
+      get 'labs/search' => 'labs#search'
 
-  constraints subdomain: 'api' do
-    get '/api' => 'static#api'
-    namespace :api, path: '' do
-      namespace :v0 do
-        get 'me' => 'users#me'
-        get 'users' => 'users#search'
-        get 'labs/search' => 'labs#search'
+      get 'search/all' => 'search#all'
+      get 'search/labs' => 'search#labs'
+      get 'search/projects' => 'search#projects'
+      get 'search/machines' => 'search#machines'
 
-        get 'search/all' => 'search#all'
-        get 'search/labs' => 'search#labs'
-        get 'search/projects' => 'search#projects'
-        get 'search/machines' => 'search#machines'
-
-        resources :coupons do
-          get "redeem", on: :member
-        end
-        resources :labs do
-          get :map, on: :collection
-        end
-        resources :projects do
-          get :map, on: :collection
-        end
+      resources :coupons do
+        get "redeem", on: :member
       end
-      namespace :v1 do
-        get 'users' => 'users#search'
-
+      resources :labs do
+        get :map, on: :collection
       end
+      resources :projects do
+        get :map, on: :collection
+      end
+    end
+    namespace :v1 do
+      get 'users' => 'users#search'
+
     end
   end
 

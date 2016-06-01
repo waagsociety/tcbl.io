@@ -87,7 +87,7 @@ $(window).load ->
       placeholder: "Select a user..",
       allowClear: true
       ajax:
-        url: "https://api.fablabs.io/v0/users"
+        url: "/api/v0/users"
         dataType: "json"
         delay: 250
         data: (params) ->
@@ -111,7 +111,7 @@ $(window).load ->
         placeholder: "Select a lab..",
         allowClear: true
         ajax:
-          url: "https://api.fablabs.io/v0/labs/search"
+          url: "/api/v0/labs/search"
           dataType: "json"
           delay: 250
           data: (params) ->
