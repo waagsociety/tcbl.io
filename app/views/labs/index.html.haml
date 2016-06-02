@@ -24,7 +24,6 @@
 
       - if params[:query].present?
         .search-results
-          -# %button.close{type: "button", data: { dismiss: "alert"}, aria: { hidden: true}} ×
           = link_to "×", labs_path, class: 'close right'
           #{pluralize @labs.size, "search result"} for
           %strong= params[:query]
@@ -51,19 +50,11 @@
               %span.count.right= count
 
     .heading
-      %strong Download
-      the Fab Labs list
-    %dl.sub-nav
-      %dt Format:
-      %dd{}= link_to "JSON", api_v0_labs_url(format: 'json'), class: 'button tiny'
-    .hint CSV and XLSX (Excel) coming soon.
-
-    .heading
       %strong Expand
       the Network
     - if current_user
-      = link_to new_lab_path, class: "button tiny success" do
+      = link_to new_lab_path, class: "button tiny primary" do
         = fa_icon "plus", text: t("views.labs.index.add_a_lab", default: "Add a Lab")
     - else
-      = link_to new_lab_path, class: "button tiny success disabled has-tip", data: { tooltip: true }, title: "You need to be signed in to add a Lab" do
+      = link_to new_lab_path, class: "button tiny primary disabled has-tip", data: { tooltip: true }, title: "You need to be signed in to add a Lab" do
         = fa_icon "plus", text: t("views.labs.index.add_a_lab", default: "Add a Lab")

@@ -1,10 +1,8 @@
 .view-as
-  -# = I18n.t("labs.index.view_as", :default => "View as")
-  -# \:
-  %ul.button-group
+  %ul.button-group.radius
     %li
-      = link_to labs_path, class: "list button small #{'secondary' if action_name != 'index'}" do
+      = link_to labs_path, class: "button small #{'secondary' if action_name != 'index'}" do
         = fa_icon "list", text: t("views.labs.index.list", default: "List")
     %li
-      = link_to map_labs_path, class: "map button small #{'secondary' if action_name != 'map'}" do
+      = link_to map_labs_path, class: "button small #{'secondary' if action_name != 'map'}" do
         = fa_icon "globe", text: t("views.labs.index.map", default: "Map")
