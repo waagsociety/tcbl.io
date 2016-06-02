@@ -78,9 +78,9 @@ $(window).load ->
 
   if $("#project-container li .project").length > 0
     $("#project-container li .project").each ->
-      if $(this).children(".project-title").css("background-image") == "none"
+      if $(this).children(".project-cover").css("background-image") == "none"
         image = triglify(150, 350)
-        $(this).children(".project-title").css("background-image", image)
+        $(this).children(".project-cover").css("background-image", image)
 
   if $("#contributions_attributes")
     $("#contributions_attributes").select2
