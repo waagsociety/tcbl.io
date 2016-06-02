@@ -5,24 +5,29 @@ footer {
   bottom: 0;
   height: $footer-height;
   width: 100%;
-  // background: #FFF;
-  a { font-size: 0.85em; }
-  // line-height: 2em;
+  text-shadow: 1px 1px 1px #FFF;
+
+  a {
+    font-size: 0.85em;
+  }
+
   .split {
     width: 100%;
-    // border-top: 1px solid #CCC;
-    // box-shadow: 0 -1px 0 #EAEAEA;
     margin-bottom: 20px;
   }
-  text-shadow: 1px 1px 1px #FFF;
+
+  p {
+    font-size: 0.7rem;
+    color: #999;
+  }
 
   img {
     max-width: 100%;
-    display: none;
-    // visibility: hidden;
   }
 
-  body.c-labs.a-map & { display: none; }
+  body.c-labs.a-map & {
+    display: none;
+  }
 
   ul, li {
     list-style: none;
@@ -34,8 +39,4 @@ footer {
       color: #AAA;
     }
   }
-  #footer-twitter-icon {
-    font-size: 30px;
-  }
-
 }
