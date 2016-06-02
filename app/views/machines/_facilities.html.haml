@@ -9,7 +9,7 @@
     .selections
       %ul
         - @machine.facilities.each do |c|
-          - if c.lab_id.present?
+          - if c.lab_id.present? && c.id != nil
             %li
               %span
                 = link_to icon('times'), facility_path(c), method: :delete

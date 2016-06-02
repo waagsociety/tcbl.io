@@ -52,8 +52,9 @@ private
     if time_zone.present?
       Chronic.time_class = ActiveSupport::TimeZone.new(time_zone)
     end
-    self.starts_at = Chronic.parse( [start_date, start_time].join(' '), endian_precedence: :little)
-    self.ends_at = Chronic.parse( [end_date, end_time].join(' '), endian_precedence: :little)
+    self.starts_at = Chronic.parse( [@start_date, @start_time].join(' '), endian_precedence: :little)
+    self.ends_at = Chronic.parse( [@end_date, @end_time].join(' '), endian_precedence: :little)
+	puts self.inspect
   end
 
 end

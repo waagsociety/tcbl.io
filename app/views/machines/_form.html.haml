@@ -8,10 +8,11 @@
       = f.input :name
       = f.input :description
 
-  %fieldset
-    %legend Facilities
-    .row
-      = render "facilities", :f => f
+  - if machine.persisted?
+    %fieldset
+      %legend Facilities
+      .row
+        = render "facilities", :f => f
 
   %fieldset
     %legend Media
