@@ -43,15 +43,18 @@ class Project < ActiveRecord::Base
   end
 
   def setted_tags
-    [ "Fab Academy Final Project",
-      "Fab Academy Diploma Thesis",
-      "Fab Awards 14",
-      "Fab Awards 15",
-      "Software",
+    [ "Open source",
       "Hardware",
-      "OpenSource",
-      "Furniture",
-      "Architecture"
+      "Software",
+      "Research",
+      "Textile academy",
+      "Open day",
+      "Textiles & materials",
+      "Clothing",
+      "Craftsmanship",
+	  "Heritage",
+	  "Technique",
+	  "Pattern drafting"
     ]
   end
 
