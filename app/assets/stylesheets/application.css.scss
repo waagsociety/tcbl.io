@@ -136,9 +136,8 @@ h1 {
   font-size: 1.5em !important;
   line-height: 1.2 !important;
 }
-.breadcrumbs li a {
-  text-transform: uppercase;
-  font-weight: normal;
+.breadcrumbs {
+  border-bottom-width: 1px;
 }
 
 .count {
@@ -149,9 +148,6 @@ h1 {
   margin-top: 0;
   font-weight: bold;
 }
-// #lab_phone {
-//   padding-left: 40px;
-// }
 
 .heading {
   font-weight: bold;
