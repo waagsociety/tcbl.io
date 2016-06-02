@@ -204,28 +204,6 @@ ul.lab-links {
   width: 100%;
   height: 300px;
   background: $sea-blue;
-  // border: 1px solid #CCC;
-  // border-radius: 4px;
-}
-
-
-// .c-labs.a-map {
-//   .leaflet-top {
-//     top: 70px;
-//   }
-// }
-
-.breadcrumb {
-  background: none;
-  padding: 0 5px;
-  border-radius: none;
-  border-bottom: 1px solid #EEE;
-  padding-bottom: 5px;
-}
-
-.button-group {
-  a.list { border-radius: 4px 0 0 4px; }
-  a.map { border-radius: 0 4px 4px 0; }
 }
 
 .lab-phone, .lab-email {
@@ -235,7 +213,6 @@ ul.lab-links {
 }
 
 .view-as {
-  overflow: hidden;
   position: relative;
   .a-map & {
     margin-top: 20px;
@@ -248,8 +225,6 @@ ul.lab-links {
   a {
     pointer-events: auto;
   }
-  // background: rgba(#F2F2F2, 0.4);
-  // border-radius: 2px;
 }
 // .c-labs .nav li {
 //   & > a {
@@ -309,7 +284,7 @@ a.all-labs {
 
 .c-labs.a-show {
   .breadcrumbs .current {
-    display: none;
+    // display: none;
   }
   .stripe {
     background: #FFF;
