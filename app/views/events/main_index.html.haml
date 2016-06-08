@@ -3,4 +3,16 @@
     = title "Events"
     %ul.events
       - @events.each do |event|
-        %li= link_to event, lab_event_path(event.lab, event)
+        %li
+          = link_to event, lab_event_path(event.lab, event)
+          - if event.starts_at
+            \-
+            = event.starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
+          - if event.lab.present?
+            %br
+            = fa_icon "map-marker"
+            %span= event.lab.name
+            - if event.lab.short_address(!params[:country]).present?
+              \-
+              %span.short_address{itemprop: "addressLocality"}= event.lab.short_address(!params[:country])
+              %span.microdata.country{itemprop: "country"}= event.lab.country_code
