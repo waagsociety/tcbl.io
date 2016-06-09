@@ -7,6 +7,6 @@
   - events.each do |event|
     %li
       = link_to event, [event.lab, event]
-      - if event.starts_at
+      - if event.local_starts_at
         \-
-        = event.starts_at.stamp('Wed, 20th November')
+        = event.local_starts_at.stamp('Wed, 20th November')

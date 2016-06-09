@@ -7,7 +7,7 @@
           = link_to event, lab_event_path(event.lab, event)
           - if event.starts_at
             \-
-            = event.starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
+            = event.local_starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
           - if event.lab.present?
             %br
             = fa_icon "map-marker"
