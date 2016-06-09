@@ -43,8 +43,8 @@ ready = ->
   $('.two-back').mouseover ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
-    $('.field-two').removeClass 'active-field' 
-    $('.field-one').addClass 'active-field' 
+    $('.field-two').removeClass 'active-field'
+    $('.field-one').addClass 'active-field'
     window.scrollTo(0, 0)
     $('.crumb-two').removeClass 'crumb-active'
     $('.crumb-one').addClass 'crumb-active'
@@ -53,7 +53,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-three').removeClass 'active-field'
-    $('.field-two').addClass 'active-field' 
+    $('.field-two').addClass 'active-field'
     window.scrollTo(0, 0)
     $('.crumb-three').removeClass 'crumb-active'
     $('.crumb-two').addClass 'crumb-active'
@@ -62,7 +62,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-four').removeClass 'active-field'
-    $('.field-three').addClass 'active-field' 
+    $('.field-three').addClass 'active-field'
     window.scrollTo(0, 0)
     $('.crumb-four').removeClass 'crumb-active'
     $('.crumb-three').addClass 'crumb-active'
@@ -71,7 +71,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-five').removeClass 'active-field'
-    $('.field-four').addClass 'active-field' 
+    $('.field-four').addClass 'active-field'
     window.scrollTo(0, 0)
     $('.crumb-five').removeClass 'crumb-active'
     $('.crumb-four').addClass 'crumb-active'
@@ -80,7 +80,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-six').removeClass 'active-field'
-    $('.field-five').addClass 'active-field' 
+    $('.field-five').addClass 'active-field'
     window.scrollTo(0, 0)
     $('.crumb-six').removeClass 'crumb-active'
     $('.crumb-five').addClass 'crumb-active'
@@ -109,7 +109,7 @@ ready = ->
     $(this).toggleClass 'active-field' if (down)
   .click ->
     $('.field-four').addClass 'active-field'
-    $('.field-three').removeClass 'active-field' 
+    $('.field-three').removeClass 'active-field'
     window.scrollTo(0, 0)
     $('.crumb-four').addClass 'crumb-active'
     $('.crumb-three').removeClass 'crumb-active'
@@ -196,7 +196,7 @@ ready = ->
     map = L.mapbox.map('map', 'mapbox.pencil', { scrollWheelZoom: true, zoomControl: false }).setView([
       50
       0
-    ], 2)
+    ], 4)
 
     # removed for ios7 see: https://github.com/Leaflet/Leaflet.markercluster/issues/279
     if !navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)
@@ -211,9 +211,6 @@ ready = ->
       window.markers = map
 
     new L.Control.Zoom({ position: 'topleft' }).addTo(map)
-    navigator.geolocation.getCurrentPosition((position)->
-      map.setView([position.coords.latitude, position.coords.longitude], 4)
-    )
 
     $.get "/mapdata.json", (labs) ->
       for lab in labs.labs
