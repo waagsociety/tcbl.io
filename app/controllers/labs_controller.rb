@@ -70,6 +70,7 @@ class LabsController < ApplicationController
     @employees = @lab.employees.includes(:user).active.order('employees.id ASC')
     @machines = @lab.machines.includes(:brand, :tags)
     @events = @lab.events.order('starts_at ASC').includes(:lab)
+    @events = @lab.projects.includes(:lab)
     @academics = @lab.academics.includes(:user).order('users.first_name ASC')
     @years = @academics.map(&:started_in).uniq.sort.reverse
     @nearby_labs = @lab.nearby_labs(false, 1000)

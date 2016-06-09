@@ -22,9 +22,9 @@
         - if @lab.header_image_src.present?
           = image_tag hocho(@lab.header_image_src, "o=r&d=800"), class: 'big-picture', itemprop: "image"
         = render("employees", lab: @lab, employees: @employees)
+        - if current_or_null_user.can_read?(Academic)
+          = render("academics", lab: @lab, academics: @academics)
       .columns.large-3.bio
         - if current_or_null_user.can_read?(Event) and @events.length > 0
           = render("events", lab: @lab, events: @events)
-        - if current_or_null_user.can_read?(Academic)
-          = render("academics", lab: @lab, academics: @academics)
         = render "nearby", lab: @lab, nearby_labs: @nearby_labs
