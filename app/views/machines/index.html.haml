@@ -5,15 +5,12 @@
       - title "Machines"
   .row
     .columns.large-12
-      .panel
-        %p It is now possible to add machines for your lab.
-
+      %ul.large-block-grid-5.small-block-grid-2= render @machines
       - if current_or_null_user.can_create?(Machine)
-        = link_to new_machine_path, class: "button tiny success" do
+        = link_to new_machine_path, class: "button primary" do
           = fa_icon "plus", text: t("views.labs.index.add_a_machine", default: "New Machine")
 
 
-      %ul.large-block-grid-5.small-block-grid-2= render @machines
 
 
     -# .columns.large-3
