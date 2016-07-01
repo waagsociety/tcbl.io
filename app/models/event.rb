@@ -44,17 +44,20 @@ class Event < ActiveRecord::Base
       ActiveSupport::TimeZone.new(time_zone).utc_to_local(self["#{word}s_at"]).stamp('01:45am') if self["#{word}s_at"].present?
     end
 
+    define_method "local_#{word}s_at" do
+      ActiveSupport::TimeZone.new(time_zone).utc_to_local(self["#{word}s_at"]) if self["#{word}s_at"].present?
+    end
+
   end
 
 private
 
   def set_timezones
-    if time_zone.present?
-      Chronic.time_class = ActiveSupport::TimeZone.new(time_zone)
+    if @time_zone.present?
+      Chronic.time_class = ActiveSupport::TimeZone.new(@time_zone)
     end
     self.starts_at = Chronic.parse( [@start_date, @start_time].join(' '), endian_precedence: :little)
     self.ends_at = Chronic.parse( [@end_date, @end_time].join(' '), endian_precedence: :little)
-	puts self.inspect
   end
 
 end

@@ -2,8 +2,8 @@
   .columns.large-12
     = render "breadcrumbs", event: @event
     - title @event
-    - if @event.starts_at
-      = @event.starts_at.stamp("at 15:00 on Wednesday, 3rd October 2020")
+    - if @event.local_starts_at
+      = @event.local_starts_at.stamp("At 15:00 on Wednesday, 3rd October 2020")
     %p created by #{link_to @event.creator, @event.creator}
     = simple_format @event.description
 

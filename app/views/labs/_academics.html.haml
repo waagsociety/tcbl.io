@@ -1,19 +1,8 @@
 .heading
   = image_tag "https://f.cloud.github.com/assets/133016/563610/2dc5ac82-c4f3-11e2-8ac0-c44b5d09b2c8.png", style: 'height: 25px; margin-bottom: -6px; padding: 0; opacity: 0.8'
-  Fab Academy Students
-  -# = fa_icon "users", text: "Fab Academy Students"
-  -# = link_to "edit", new_lab_academic_path(@lab)
-
-%dl.sub-nav#students-filter
-  %dt Started in:
-
-  %dd.active= link_to "All", "#"
-  - @years.each do |year|
-    %dd= link_to year, "#", data: { year: year }
+  Students
 
 #students
-  -# %input.search{placeholder: "Search"}
-  -# %button.sort{data:{sort: "name"}} Sort by name
   %ul.large-block-grid-2.academics.list
     - if academics.length > 0
       - academics.each do |academic|
@@ -28,8 +17,6 @@
               .person-details
                 = link_to "Academy Website", academic.url
               .year #{academic.started_in} Student
-              -# = academic.id
-              -# .graduated= fa_icon "check-circle-o", text: "Graduated 2013"
 
     - unless current_or_null_user.studied_at? @lab
       %li.person.med
