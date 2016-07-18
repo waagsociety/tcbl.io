@@ -1,0 +1,2 @@
+class MachineAuthorizer < ThingAuthorizer
+end
