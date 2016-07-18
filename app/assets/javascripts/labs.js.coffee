@@ -4,9 +4,15 @@ window.showingContacts = false
 
 down = false
 
+# function to redraw the map, and place the marker according to the current geocoder address
+# added by Taco to fix issue that was introduced when hiding/showing the steps.
+updateMap = ->
+  map = $('#geocomplete').geocomplete('map')
+  google.maps.event.trigger map, 'resize'
+  $('input').trigger 'geocode'
+  return
+
 ready = ->
-
-
   options = {
     valueNames: [ 'name', 'year' ]
   }
@@ -36,7 +42,6 @@ ready = ->
     $(this).toggleClass 'active'
 
 # Start Laurie Code
-
 
 # Back Buttons
 
@@ -120,6 +125,7 @@ ready = ->
     $('.field-five').addClass 'active-field'
     $('.field-four').removeClass 'active-field'
     window.scrollTo(0, 0)
+    updateMap()
     $('.crumb-five').addClass 'crumb-active'
     $('.crumb-four').removeClass 'crumb-active'
 
