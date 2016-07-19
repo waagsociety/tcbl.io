@@ -1,36 +1,38 @@
 class EventsController < ApplicationController
 
+  # show events for all labs
   def main_index
     @events = Event.upcoming.includes(:lab)
-    authorize_action_for @events
+    #authorize_action_for @events
   end
 
   def edit
     @lab = Lab.friendly.find(params[:lab_id])
     @event = Event.find(params[:id])
-    authorize_action_for @event
+    authorize_action_for @lab
   end
 
   def show
     @event = Event.find(params[:id])
-    authorize_action_for @event
+    #authorize_action_for @event
   end
 
+  # show events for current lab only
   def index
-    @events = Event.upcoming.includes(:lab).order('starts_at ASC').group_by { |t| t.starts_at.beginning_of_day }#.where('starts_at > ?', Time.now)
-    authorize_action_for Event
+    @lab = Lab.friendly.find(params[:lab_id])
+    #authorize_action_for Event
   end
 
   def new
     @lab = Lab.friendly.find(params[:lab_id])
     @event = Event.new
-    authorize_action_for @event
+    authorize_action_for @lab
   end
 
   def update
     @lab = Lab.friendly.find(params[:lab_id])
     @event = Event.find(params[:id])
-    authorize_action_for @event
+    authorize_action_for @lab
     if @event.update_attributes event_params
       # track_activity @event, current_user
       redirect_to [@event.lab,@event], notice: "Event Updated"
@@ -43,7 +45,7 @@ class EventsController < ApplicationController
     @lab = Lab.friendly.find(params[:lab_id])
     @event = @lab.events.build(event_params)
     @event.creator = current_user
-    authorize_action_for @event
+    authorize_action_for @lab
     if @event.save
       track_activity @event, current_user
       redirect_to [@event.lab,@event], notice: "Event Created"

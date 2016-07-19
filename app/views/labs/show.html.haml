@@ -25,6 +25,7 @@
         - if current_or_null_user.can_read?(Academic)
           = render("academics", lab: @lab, academics: @academics)
       .columns.large-3.bio
-        - if current_or_null_user.can_read?(Event) and @events.length > 0
+        -# if current_or_null_user.can_read?(Event) and @events.length > 0
+        - if @events.length > 0
           = render("events", lab: @lab, events: @events)
         = render "nearby", lab: @lab, nearby_labs: @nearby_labs
