@@ -2,14 +2,15 @@
 class ThingAuthorizer < ApplicationAuthorizer
 
   def self.creatable_by?(user)
-	true
+	ApplicationAuthorizer.logged_in? user
   end
 
   def self.updatable_by?(user)
     # user.has_role?(:superadmin) #or user.is_creator? resource
-	true
+	ApplicationAuthorizer.logged_in? user
   end
 
+  #readable by everyone, even non logged in users
   def self.readable_by?(user)
     true
   end
@@ -17,5 +18,4 @@ class ThingAuthorizer < ApplicationAuthorizer
   def self.deletable_by?(user)
     user.has_role?(:superadmin) #or user.is_creator? resource
   end
-
 end

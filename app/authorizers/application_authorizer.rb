@@ -12,5 +12,9 @@ class ApplicationAuthorizer < Authority::Authorizer
     # considered forbidden.
     false
   end
-
+  
+  #helper to define if user is logged in
+  def self.logged_in?(user)
+	  user.id != nil
+  end
 end
