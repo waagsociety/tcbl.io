@@ -2,7 +2,7 @@ class Thing < ActiveRecord::Base
   include Authority::Abilities
   self.authorizer_name = 'ThingAuthorizer'
 
-  after_create :update_photo_src
+  mount_uploader :photo_src, AvatarUploader
 
   has_ancestry
   belongs_to :brand
@@ -12,9 +12,6 @@ class Thing < ActiveRecord::Base
   accepts_nested_attributes_for :facilities
   has_many :labs, through: :facilities
   has_many :links, as: :linkable
-
-  has_many :documents, as: :documentable, dependent: :destroy
-  accepts_nested_attributes_for :documents
 
   accepts_nested_attributes_for :links, reject_if: lambda{ |l| l[:url].blank? }, allow_destroy: true
 
@@ -42,13 +39,5 @@ class Thing < ActiveRecord::Base
   def self.last_updated_at
     self.select(:updated_at).order('updated_at DESC').first
   end
-
-  private
-
-    def update_photo_src
-      if self.photo_src == nil || self.photo_src.empty?
-        self.photo_src = self.documents.first.image.url(:large) if documents.first
-      end
-    end
 
 end

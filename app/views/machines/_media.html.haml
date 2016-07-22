@@ -1,27 +1,7 @@
 .row
   .columns.large-3
     %span#file-input-name
+    = image_tag machine.photo_src, class: '', itemprop: "logo"
   .columns.large-9
-    = f.label :images_files
-    = f.fields_for :documents_attributes, machine.documents do |d|
-      %span#file-click.button.button-file
-        Pick file
-        = d.file_field "image", name: "machine[documents_attributes][][image]", class: "document_image", multiple: true
-%hr/
-.row
-  .columns.large-3
-  .columns.large-9
-    - if @machine.documents.present?
-      = f.label "Thumbnails"
-      %p
-        Select the image that you would like to use as cover image.
-      %ul
-        - @machine.documents.each do |document|
-          %li.thumbs
-            %div
-              = f.radio_button :photo_src, document.image.url(:large)
-              %label.radio
-                = document.id
-            %h4
-              = link_to icon('trash-o'), document_path(document), method: :delete
-            = image_tag hocho(document.image.url(:thumb), "o=t&q=80&d=200x200")
+    = f.label 'Machine cover picture'
+    = f.file_field "photo_src", class: "document_image"

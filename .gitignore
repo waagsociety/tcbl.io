@@ -16,6 +16,7 @@
 /log/*
 /tmp
 /public/assets
+/public/uploads
 
 # Ignore application configuration
 /config/application.yml

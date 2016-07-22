@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  # TODO: friendly_id
+  # carrier wave uploader
+  mount_uploader :avatar_src, AvatarUploader
 
   include Tokenable
   include Authority::UserAbilities

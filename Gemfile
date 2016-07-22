@@ -138,3 +138,5 @@ gem 'capistrano', '~> 2.15'#, group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'byebug'
 
+# Carrierwave to replace paperclip and filestack.io
+gem 'carrierwave'

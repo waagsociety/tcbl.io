@@ -4,6 +4,10 @@ class Lab < ActiveRecord::Base
   include Workflow
   include ApproveWorkflow
 
+  # carrier wave uploader
+  mount_uploader :avatar_src, AvatarUploader
+  mount_uploader :header_image_src, AvatarUploader
+
   self.authorizer_name = 'LabAuthorizer'
   resourcify
   has_ancestry
