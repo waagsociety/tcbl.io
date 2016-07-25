@@ -73,6 +73,15 @@ $(window).load ->
       val = $(".document_image")[0].value
       $("#file-input-name").text(val)
 
+  if ($(".header_image")[0])
+    val = $(".header_image")[0].value
+    $("#file-input-name-header").text(val)
+
+    $(".header_image").on "change", ->
+      val = $(".header_image")[0].value
+      $("#file-input-name-header").text(val)
+
+
   if ($("#project-container"))
     $("#project-container").masonry itemSelector: "#project-container li"
 

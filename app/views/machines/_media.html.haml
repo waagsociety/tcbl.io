@@ -1,7 +1,10 @@
 .row
   .columns.large-3
     %span#file-input-name
-    = image_tag machine.photo_src, class: '', itemprop: "logo"
+    - if machine.photo_src.blank? == false  
+      = image_tag machine.photo_src, class: '', itemprop: "logo"
   .columns.large-9
     = f.label 'Machine cover picture'
-    = f.file_field "photo_src", class: "document_image"
+    %span#file-click.button.button-file
+      Pick file
+      = f.file_field "photo_src", class: "document_image"

@@ -38,21 +38,30 @@
             .columns.large-9= f.input_field :slug, class: 'form-control'
 
         .row
-          .columns.large-3= image_tag hocho(lab.avatar, "o=t&q=80&d=300x300&"), class: '', itemprop: "logo"
-         
-          %hr/ 
+          .columns.large-3
+            %span#file-input-name
+            - if @lab.avatar_src.present?
+              = image_tag hocho(lab.avatar, "o=t&q=80&d=300x300&"), class: '', itemprop: "logo"
+
           = f.label 'Lab profile picture'
-          = f.file_field :avatar_src
+
+          %span#file-click.button.button-file
+            Pick file
+            = f.file_field :avatar_src, class: "document_image"
           = f.hint "This will be a square image next shown next to the lab name throughout the site"
 
         %hr/
         .row
           .columns.large-3
+            %span#file-input-name-header
             - if @lab.header_image_src.present?
               = image_tag @lab.header_image_src, class: 'avatar big'
           
           = f.label 'Lab photo'
-          = f.file_field :header_image_src
+            
+          %span#file-click.button.button-file
+            Pick file
+            = f.file_field :header_image_src, class: "header_image"
           = f.hint "A single (large) photo of your lab."
 
         %hr/

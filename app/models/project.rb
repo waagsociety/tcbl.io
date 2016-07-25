@@ -73,9 +73,9 @@ class Project < ActiveRecord::Base
       if self.documents.empty?
         return 'none'
       elsif self.cover.present?
-        return self.documents.find(self.cover).image.url(:medium)
+        return self.documents.find(self.cover).image_src
       elsif self.documents.first
-        return self.documents.first.image.url(:medium)
+        return self.documents.first.image_src
       else
         self.update_attributes(cover: nil)
         return 'none'

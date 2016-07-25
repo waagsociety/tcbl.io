@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303135238) do
+ActiveRecord::Schema.define(version: 20160725084246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 20160303135238) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "documentable_type"
+    t.string   "image_src"
   end
 
   add_index "documents", ["documentable_id"], name: "index_documents_on_documentable_id", using: :btree

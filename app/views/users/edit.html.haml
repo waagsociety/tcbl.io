@@ -25,8 +25,13 @@
 
       %fieldset
         .row
-          .columns.large-3= image_tag hocho(@user.avatar, "o=t&q=80&d=200x200&"), class: 'avatar big'
-        = f.file_field :avatar_src
+          .columns.large-3
+            %span#file-input-name
+            = image_tag hocho(@user.avatar, "o=t&q=80&d=200x200&"), class: 'avatar big'
+            
+        %span#file-click.button.button-file
+          Pick file
+          = f.file_field :avatar_src, class: "document_image"
 
       %fieldset
         = f.input :use_metric, :collection => [[true, 'Metric - cm/m/km'], [false, 'Imperial - in/ft/mi']], :label_method => :last, :value_method => :first, :as => :radio_buttons, :label => "Preferred units", :hint => "This doesn't update measurements on the site yet, but will do soon"

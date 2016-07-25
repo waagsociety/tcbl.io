@@ -106,7 +106,7 @@ class ProjectsController < ApplicationController
         :twitter,
         :facebook,
         tag_list: [],
-        documents_attributes: [ :id, :image, :title, :description ],
+        documents_attributes: [ :id, :image_src, :title, :description ],
         steps_attributes: [
           :id,
           :title,

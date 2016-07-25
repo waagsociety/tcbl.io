@@ -140,3 +140,4 @@ gem 'byebug'
 
 # Carrierwave to replace paperclip and filestack.io
 gem 'carrierwave'
+gem 'mini_magick'

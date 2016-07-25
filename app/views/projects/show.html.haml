@@ -16,7 +16,7 @@
       %ul.example-orbit{data: { orbit: "" }}
         - @project.documents.each_with_index do |document, index|
           %li
-            = image_tag document.image.url(:medium), alt: "slide #{index}"
+            = image_tag document.image_src.medium.url, alt: "slide #{index}"
     - if @project.description.present?
       .heading
         = icon('file-text-o')
@@ -32,9 +32,8 @@
         %ul.clearing-thumbs{data: { clearing: "" } }
           - @project.documents.each do |document|
             %li
-              = link_to document.image.url(:large), class: "image_link th [radius]" do
-                = image_tag document.image.url(:thumb)
-
+              = link_to document.image_src.large.url, class: "image_link th [radius]" do
+                = image_tag document.image_src.thumb.url
     - unless @project.steps.empty?
       .heading
         = icon('cog')

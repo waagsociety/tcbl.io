@@ -43,6 +43,9 @@ set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
+# config/deploy.rb
+set :shared_children, fetch(:shared_children) + %w{public/uploads}
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 set :maintenance_template_path, File.expand_path("../recipes/templates/maintenance.html.erb", __FILE__)
@@ -52,6 +55,10 @@ after "deploy", "deploy:migrate", "deploy:cleanup", "post_deploy" # keep only th
 require './config/boot' #run bundle
 
 task :post_deploy do
+
+	#create shared assets directory if not exists
+	run "mkdir -p apps/tcbl.io/shared/uploads"
+	
 	set :use_sudo, true
 	
 	#restart sidekiq mailer daemon
