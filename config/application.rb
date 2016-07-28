@@ -43,20 +43,6 @@ module Fablabs
       g.fixture_replacement :factory_girl
     end
 
-
-    #
-    # Paperclip configuration options
-    #
-    config.paperclip_defaults = {
-      storage: :s3,
-      s3_credentials: {
-        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET']
-      },
-      bucket: ENV['AWS_BUCKET']
-    }
-
-
     config.url = 'http://labs.tcbl.eu'
 
     config.action_mailer.delivery_method = :smtp

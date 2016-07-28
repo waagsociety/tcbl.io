@@ -72,11 +72,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-gem "paperclip", "~> 4.2"
-# For paperclip/refile we need:
-gem 'aws-s3'
-gem 'aws-sdk-v1' # Can be used together with v2 because of different namespaces.
-
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # gem 'rspec_api_documentation'
@@ -107,6 +102,7 @@ group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
 end
+
 group :test do
   gem 'zonebie'
   gem "launchy"
@@ -117,6 +113,7 @@ group :test do
   gem "shoulda-matchers"
   gem "codeclimate-test-reporter", require: nil
 end
+
 group :development do
   gem 'quiet_assets'
   gem 'net-ssh'
@@ -125,19 +122,11 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
-# gem 'foreman'
-gem 'unicorn'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 gem 'capistrano', '~> 2.15'#, group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'byebug'
-
-# Carrierwave to replace paperclip and filestack.io
 gem 'carrierwave'
 gem 'mini_magick'
