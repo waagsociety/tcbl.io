@@ -1,6 +1,6 @@
 class AdminMailer < ActionMailer::Base
 
-  default from: "TCBL <scrm@waag.org>"
+  default from: "TCBL <noreply@labs.tcbl.eu>"
 
   def lab_submitted lab_id
     begin
