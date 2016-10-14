@@ -100,6 +100,7 @@ Fablabs::Application.routes.draw do
     end
 
     # resources :labs, path: '', only: [:show]
+    get "admin/become(/:id)", to: "admin#become", as: "admin_become"
 
     # resources :labs, only: [:show, :destroy], path: ''
      #, except: [:show]

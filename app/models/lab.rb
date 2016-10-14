@@ -133,6 +133,7 @@ class Lab < ActiveRecord::Base
     [city, county, (country if include_country)].reject(&:blank?).join(", ")
   end
 
+  #TODO: this logic should be moved to the view, if present display, otherwise show asset according to the asset pipeline.
   def avatar
     if avatar_src.present?
       avatar_src
@@ -214,19 +215,19 @@ class Lab < ActiveRecord::Base
     self.select(:updated_at).order('updated_at DESC').first
   end
 
+  #TODO: should be migrated to database
+  #waagsociety is still in there for debugging purposes
   def self.approved_referees
     referees = [
-      "thewellingtonmakerspace",
-      "fablabtaipei",
-      "waagsociety",
-      "fablablima",
-      "fablabuniversidadedesaopaulo",
-      "fablabsandiego",
-      "as220labs",
-      "fablabbcn",
-      "fablabcascina",
-      "vigyanashram",
-      "fablabkamakura"
+		 "athensfashiondesignlab",
+		 "fabbricaarca",
+		 "sanjotecdesignlab",
+		 "textilecentreofexcellencedesignlab",
+		 "textilelabamsterdamacademy", 
+		 "textilemuseumprato",
+		 "athensmakinglab",
+		 "lanificiopaoletti",
+      	 "waagsociety"
     ]
 
     Lab.where(slug: referees).order('name ASC')
