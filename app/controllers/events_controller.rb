@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   # show events for all labs
   def main_index
     @events = Event.upcoming.includes(:lab)
+    @past_events = Event.past.includes(:lab)
     #authorize_action_for @events
   end
 

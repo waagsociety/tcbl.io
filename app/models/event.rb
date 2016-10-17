@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
   attr_writer :start_date, :start_time, :end_date, :end_time
 
   scope :upcoming, -> { where('starts_at > ?', Time.now) }
+  scope :past, -> { where('starts_at < ?', Time.now).limit(10) }
 
   Tags = %w(open_days workshops lectures social_party)
   bitmask :tags, as: Tags

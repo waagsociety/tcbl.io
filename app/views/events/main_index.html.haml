@@ -1,9 +1,28 @@
 .row
   .columns.large-12
-    = title "Events"
+    = title "Upcoming events"
     %ul.events
       - @events.each do |event|
-        %li
+        %li.event{:style => "margin-top: 1em;"}
+          = link_to event, lab_event_path(event.lab, event)
+          - if event.starts_at
+            \-
+            = event.local_starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
+          - if event.lab.present?
+            %br
+            = fa_icon "map-marker"
+            %span= event.lab.name
+            - if event.lab.short_address(!params[:country]).present?
+              \-
+              %span.short_address{itemprop: "addressLocality"}= event.lab.short_address(!params[:country])
+              %span.microdata.country{itemprop: "country"}= event.lab.country_code
+      - if @events.count == 0
+        %p There are no upcoming events yet
+
+    = title "Past events"
+    %ul.past_events
+      - @past_events.each do |event|
+        %li.event{:style => "margin-top: 1em;"}
           = link_to event, lab_event_path(event.lab, event)
           - if event.starts_at
             \-
