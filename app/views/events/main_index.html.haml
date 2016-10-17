@@ -20,7 +20,7 @@
         %p There are no upcoming events yet
 
     = title "Past events"
-    %ul.past_events
+    %ul.events
       - @past_events.each do |event|
         %li.event{:style => "margin-top: 1em;"}
           = link_to event, lab_event_path(event.lab, event)

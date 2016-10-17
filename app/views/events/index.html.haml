@@ -1,20 +1,31 @@
 .row
   .columns.large-12
-    = title "Lab Events"
+    = title "Upcoming events at #{@lab.name} "
+    
+    %ul.events
+      - @lab.events.upcoming.each do |event|
+        %li.event{:style => "margin-top: 1em;"}
+          = link_to event, lab_event_path(event.lab, event)
+          - if event.starts_at
+            \-
+            = event.local_starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
+          - if event.lab.present?
+            %br
 
-    %ul
-      - @lab.events.each do |day, events|
-        %li
-          -# = day.stamp('wednesday, 12th November 2012')
-          %ul
-            - @lab.events.each do |event|
-              %li
-                = event.all_day? ? "All Day" : event.starts_at.stamp('15:30')
-                = event
-                -# = link_to event, event
-                \-
-                = link_to event.lab, event.lab
+      - if @lab.events.upcoming.count == 0
+        %p There are no upcoming events yet
 
-    -# only show button when user has permission to edit @lab
-    - if current_user and current_user.employed_by? @lab
-      = link_to "Add Event", new_lab_event_path, class: 'button'
+    
+    = title "Past events at #{@lab.name}"
+    %ul.events
+      - @lab.events.past.each do |event|
+        %li.event{:style => "margin-top: 1em;"}
+          = link_to event, lab_event_path(event.lab, event)
+          - if event.starts_at
+            \-
+            = event.local_starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
+          - if event.lab.present?
+            %br
+      
+      - if current_user and current_user.employed_by? @lab
+        = link_to "Add Event", new_lab_event_path, class: 'button'
