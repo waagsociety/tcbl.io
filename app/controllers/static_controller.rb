@@ -10,7 +10,7 @@ class StaticController < ApplicationController
   end
 
   def embed_what
-	render :what, layout: false
+	render :what, layout: "embed" 
   end
 
   def principles
