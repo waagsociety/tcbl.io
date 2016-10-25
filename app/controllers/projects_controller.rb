@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   include ProjectsOperations
 
-  before_filter :require_login, except: [:index]
+  before_filter :require_login, except: [:index, :embed]
 
   def index
     @projects = all_projects.page(params['page']).per(params['per'])
@@ -11,6 +11,11 @@ class ProjectsController < ApplicationController
       format.json { render json: @projects }
       # format.csv { send_data @projects.to_csv }
     end
+  end
+
+  def embed
+    @projects = all_projects.page(params['page']).per(params['per'])
+	render :index, layout: "embed" 
   end
 
   def search

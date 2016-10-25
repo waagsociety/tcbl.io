@@ -7,6 +7,12 @@ class EventsController < ApplicationController
     #authorize_action_for @events
   end
 
+  def embed
+    @events = Event.upcoming.includes(:lab)
+    @past_events = Event.past.includes(:lab)
+	render :main_index, layout: "embed" 
+  end
+
   def edit
     @lab = Lab.friendly.find(params[:lab_id])
     @event = Event.find(params[:id])
