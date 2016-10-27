@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  after_action :allow_iframe, only: :embed
+
   # show events for all labs
   def main_index
     @events = Event.upcoming.includes(:lab)

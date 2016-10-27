@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   include ProjectsOperations
 
   before_filter :require_login, except: [:index, :embed]
+  after_action :allow_iframe, only: :embed
 
   def index
     @projects = all_projects.page(params['page']).per(params['per'])

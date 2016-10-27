@@ -1,5 +1,7 @@
 class StaticController < ApplicationController
 
+  after_action :allow_iframe, only: :embed_what
+
   def home
   end
 
