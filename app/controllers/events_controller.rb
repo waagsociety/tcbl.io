@@ -15,6 +15,10 @@ class EventsController < ApplicationController
 	render :main_index, layout: "embed" 
   end
 
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
+  
   def edit
     @lab = Lab.friendly.find(params[:lab_id])
     @event = Event.find(params[:id])

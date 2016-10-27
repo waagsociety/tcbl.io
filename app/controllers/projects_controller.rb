@@ -19,6 +19,10 @@ class ProjectsController < ApplicationController
 	render :index, layout: "embed" 
   end
 
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
+
   def search
     @projects = filter_by(params).page(params['page']).per(params['per'])
     respond_to do |format|

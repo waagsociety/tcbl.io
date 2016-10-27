@@ -15,6 +15,11 @@ class StaticController < ApplicationController
 	render :what, layout: "embed" 
   end
 
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
+
+
   def principles
   end
 
