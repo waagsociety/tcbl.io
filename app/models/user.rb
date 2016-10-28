@@ -94,6 +94,8 @@ class User < ActiveRecord::Base
     has_role? :superadmin
   end
 
+  # blijkbaar zijn er op dit moment geen labs met rol admin, 
+  # die moeten we dus toch in de database toevoegen?
   def admin_labs
     self.roles.where(name: "admin", resource_type: "Lab")
   end

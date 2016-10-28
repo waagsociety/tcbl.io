@@ -15,6 +15,7 @@ FactoryGirl.define do
     kind 1
     referee_id 1
     creator
+	association :criteria, factory: :lab_criterium 
   end
 
   factory :repeat do

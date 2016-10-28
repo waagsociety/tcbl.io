@@ -4,6 +4,15 @@ window.showingContacts = false
 
 down = false
 
+last_valid_selection = $('.referee_approval').val
+
+$('.referee_approval').change (event) ->
+  if $(this).val().length > 3
+    $(this).val last_valid_selection
+  else
+    last_valid_selection = $(this).val()
+  return
+
 # function to redraw the map, and place the marker according to the current geocoder address
 # added by Taco to fix issue that was introduced when hiding/showing the steps.
 updateMap = ->
@@ -17,16 +26,6 @@ ready = ->
     valueNames: [ 'name', 'year' ]
   }
   window.userList = new List('students', options)
-
-  last_valid_selection = $('.referee_approval').val
-
-  $('.referee_approval').change (event) ->
-    if $(this).val().length > 3
-      $(this).val last_valid_selection
-    else
-      last_valid_selection = $(this).val()
-    return
-  return
 
 
   $('#students-filter a').click (e) ->

@@ -154,7 +154,7 @@ private
       facilities_attributes: [ :id, :lab_id, :thing_id, '_destroy' ],
       links_attributes: [ :id, :link_id, :url, '_destroy' ],
       employees_attributes: [ :id, :job_title, :description ],
-	  criteria_attributes: [:principle1, :principle2, :principle3, :principle4, :principle5, :principle6, :principle7, :service1, :service2, :service3, :service4, :service5, :network]
+	  criteria_attributes: [:principle1, :principle2, :principle3, :principle4, :principle5, :principle6, :principle7, :service1, :service2, :service3, :service4, :service5, :network],
       referee_approval_processes_attributes: [:referee_lab_id, '_destroy'],
     )
   end

@@ -75,27 +75,25 @@
     -# %div.fieldset-wrapper
     
     = render 'referees', :f => f
-      = f.input :parent_id, label: "Parent (Supernode) Lab", as: 'select', collection: Lab.with_approved_state.order('name ASC'), hint: "Is this lab connected with a Supernode? If so, which lab?", input_html: { class: 'enhanced', style: 'width: 80%;' }
 
-      -#= f.input :parent_id, label: "Parent (Supernode) Lab", as: 'select', collection: Lab.with_approved_state.order('name ASC'), hint: "Is this lab connected with a Supernode? If so, which lab?", input_html: { class: 'enhanced' }
-      .radio-group
-        = f.radio_button :tools, 1
-        %label.radio{style: "width: 80%;"}
-          The submitted lab commits to actively comply to the TCBL principles .
+    .radio-group
+      = f.radio_button :tools, 1
+      %label.radio{style: "width: 80%;"}
+        The submitted lab commits to actively comply to the TCBL principles .
 
-      = f.simple_fields_for :criteria do |c|
-        = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Explorative, innovative character. Outcomes feed into new, replicable business models. Exploring new business models by reframing."
-        = c.input :principle2, label: "Viability principle", placeholder: "How do you implement the Viability Principle in your lab?", hint: "Economic sustainability of lab structure. Value creation to the community: public events, communication and awareness. Including monetary and non-monetary transactions."
-        = c.input :principle3, label: "Durability principle", placeholder: "How do you implement the Durability Principle in your lab?", hint: "Explore ways to reduce waste.Work with low-impact materials and processes. Work towards emotionally durable design."
-        = c.input :principle4, label: "Multiplicity principle", placeholder: "How do you implement the Multiplicity Principle in your lab?", hint: "Open to both professional and non-professional competences. Gender equivalency and open opportunity structures. Exploration of un-met and un-expressed needs."
-        = c.input :principle5, label: "Openness principle", placeholder: "How do you implement the Openness Principle in your lab?", hint: "Open and freely accessible participation. Sharing knowledge, findings and networks. Interoperable and where possible open source technology and software."
-        = c.input :principle6, label: "Respect principle", placeholder: "How do you implement the Respect Principle in your lab?", hint: "Tools and processes that empower users. Restore the dignity, value and satisfaction of productive making activities. Fair and ethical operations."
-        = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Spaces and equipment in a safe and secure environment. Availability of support knowledge for processes, machinery, etc. Consultancy and follow-up to participants interested in business development."
-      .row
-        .columns.large-3
-          %span.button.two-back Go Back
-        .columns.large-3
-          %span.button.next-three Go to Step 3
+    = f.simple_fields_for :criteria do |c|
+      = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Explorative, innovative character. Outcomes feed into new, replicable business models. Exploring new business models by reframing."
+      = c.input :principle2, label: "Viability principle", placeholder: "How do you implement the Viability Principle in your lab?", hint: "Economic sustainability of lab structure. Value creation to the community: public events, communication and awareness. Including monetary and non-monetary transactions."
+      = c.input :principle3, label: "Durability principle", placeholder: "How do you implement the Durability Principle in your lab?", hint: "Explore ways to reduce waste.Work with low-impact materials and processes. Work towards emotionally durable design."
+      = c.input :principle4, label: "Multiplicity principle", placeholder: "How do you implement the Multiplicity Principle in your lab?", hint: "Open to both professional and non-professional competences. Gender equivalency and open opportunity structures. Exploration of un-met and un-expressed needs."
+      = c.input :principle5, label: "Openness principle", placeholder: "How do you implement the Openness Principle in your lab?", hint: "Open and freely accessible participation. Sharing knowledge, findings and networks. Interoperable and where possible open source technology and software."
+      = c.input :principle6, label: "Respect principle", placeholder: "How do you implement the Respect Principle in your lab?", hint: "Tools and processes that empower users. Restore the dignity, value and satisfaction of productive making activities. Fair and ethical operations."
+      = c.input :principle7, label: "Responsibility principle", placeholder: "How do you implement the Responsibility principle in your lab?", hint: "Spaces and equipment in a safe and secure environment. Availability of support knowledge for processes, machinery, etc. Consultancy and follow-up to participants interested in business development."
+    .row
+      .columns.large-3
+        %span.button.two-back Go Back
+      .columns.large-3
+        %span.button.next-three Go to Step 3
 
   %fieldset.field-three.field
     %legend.legend  Step 3
