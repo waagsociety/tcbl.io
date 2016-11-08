@@ -2,7 +2,7 @@ Premailer::Rails.config.merge!(link_query_string: 'from=f10m001')
 
 class UserMailer < ActionMailer::Base
 
-  default from: "TCBL <noreply@labs.tcbl.eu>"
+  default from: "labs.tcbl.eu <noreply@labs.tcbl.eu>"
 
   %w(submitted approved rejected removed referee_requested_admin_approval referee_rejected referee_approved requested_more_info more_info_added more_info_needed).each do |action|
     define_method("lab_#{action}") do |lab_id|
@@ -49,7 +49,7 @@ class UserMailer < ActionMailer::Base
   def verification user_id
     begin
       @user = User.find(user_id)
-      mail(to: @user.email_string, from: "TCBL.eu <noreply@labs.tcbl.eu>", subject: "Email Verification Instructions")
+      mail(to: @user.email_string, from: "labs.tcbl.eu <noreply@labs.tcbl.eu>", subject: "Email Verification Instructions")
     rescue ActiveRecord::RecordNotFound
     end
   end
@@ -57,7 +57,7 @@ class UserMailer < ActionMailer::Base
   def account_recovery_instructions user_id
     begin
       @user = User.find(user_id)
-      mail(to: @user.email_string, from: "TCBL.eu <noreply@labs.tcbl.eu>", subject: "Account Recovery Instructions")
+      mail(to: @user.email_string, from: "labs.tcbl.eu <noreply@labs.tcbl.eu>", subject: "Account Recovery Instructions")
     rescue ActiveRecord::RecordNotFound
     end
   end
