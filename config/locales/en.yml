@@ -40,8 +40,8 @@ en:
     home:
       welcome:              "Welcome"
       around_the_world:     "Around the world"
-      whats_a_fab_lab:      "I'm new here. What are Textile & Business Labs?"
-      fab_labs_description: "This is a beta test site for TCBL Labs. For the main TCBL website click <a href='http://www.project-tcbl.eu'>here</a>."
+      whats_a_fab_lab:      "Welcome to the TCBL Labs Platform!"
+      fab_labs_description: "I'm new here. <a href=\"/what\">What</a> are Textile & Business Labs?"
       who_is_it_for:        "Who is TCBL for?"
       what_can_i_do:        "What can I do?"
       lab_profiles:         "Lab profiles"
