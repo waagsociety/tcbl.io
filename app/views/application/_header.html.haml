@@ -4,7 +4,7 @@
     %ul.title-area
       %li.name
         %h1
-          = link_to root_path do
+          = link_to 'http://tcbl.eu' do
             = image_tag "circle-logo.png", id: 'logo'
       %li.toggle-topbar.menu-icon
         = link_to "#" do
@@ -18,6 +18,9 @@
         -#     - if params[:country].present?
         -#       = hidden_field_tag 'country', params[:country]
         -#     = text_field_tag 'q', params[:q], class: 'form-control', autocomplete: 'off', placeholder: t("views.header.search"), id: 'search-box'
+        %li 
+          = link_to 'Home', root_path, class: 'top-link'
+
         %li.has-dropdown{class: ('active' if controller_name == 'labs')}
           = link_to t("views.header.labs"), labs_path, class: 'top-link'
           %ul.dropdown
