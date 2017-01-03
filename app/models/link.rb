@@ -11,7 +11,7 @@ class Link < ActiveRecord::Base
 private
 
   def add_http
-    self.url = "http://#{url}" if url.present? and !url.match(/^http/)
+    self.url = "http://#{url}" if url.present? and !url.match(/^http/) and !url.match(/^https/)
   end
 
 end
