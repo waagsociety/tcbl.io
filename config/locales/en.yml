@@ -1,4 +1,10 @@
 en:
+  activerecord:
+    attributes:
+        lab:
+            referee_approval_processes: "Referee labs"
+            charter: "Our principles"
+
   capabilities:
     designers:       "Designers"
     fashion_designers:     "Fashion Designers"
