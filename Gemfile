@@ -133,3 +133,6 @@ gem 'capistrano', '~> 2.15'#, group: :development
 gem 'byebug'
 gem 'carrierwave'
 gem 'mini_magick'
+
+#voor tclb sso
+gem 'openid_connect'

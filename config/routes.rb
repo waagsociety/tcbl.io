@@ -9,9 +9,11 @@ Fablabs::Application.routes.draw do
   get "signin" => "sessions#new", :as => "signin"
   get '/robots.txt' => 'robots#robots', :format => :txt
 
+  resources :providers, only: :create do
+	  resource :open_id, only: [:show, :create]
+  end
+  
   resources :sessions
-
-
   #constraints subdomain: 'www' do
     # resources :discussions
     get "activity" => "activities#index", :as => "activity"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725134928) do
+ActiveRecord::Schema.define(version: 20170214085017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -352,6 +352,15 @@ ActiveRecord::Schema.define(version: 20160725134928) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
+  create_table "open_ids", force: true do |t|
+    t.integer  "provider_id"
+    t.string   "identifier"
+    t.string   "access_token", limit: 1024
+    t.string   "id_token",     limit: 2048
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.integer  "pageable_id"
     t.string   "pageable_type"
@@ -398,6 +407,24 @@ ActiveRecord::Schema.define(version: 20160725134928) do
 
   add_index "projects", ["lab_id"], name: "index_projects_on_lab_id", using: :btree
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
+
+  create_table "providers", force: true do |t|
+    t.string   "issuer"
+    t.string   "jwks_uri"
+    t.string   "name"
+    t.string   "identifier"
+    t.string   "secret"
+    t.string   "scopes_supported"
+    t.string   "host"
+    t.string   "scheme"
+    t.string   "authorization_endpoint"
+    t.string   "token_endpoint"
+    t.string   "userinfo_endpoint"
+    t.boolean  "dynamic",                default: false
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "recoveries", force: true do |t|
     t.integer  "user_id"
