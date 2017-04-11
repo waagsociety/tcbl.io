@@ -201,7 +201,7 @@
           %span.button.next-six Go to Step 6
 
     - @collection = Machine.includes(:brand)
-    - @selected = @lab.machines.map{|u| u.id}.collect
+    - @selected = @lab.machines.map{|u| u}.collect
 
     - if lab.new_record?
       %p You will be able to add individual machines once your lab is approved.

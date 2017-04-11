@@ -216,11 +216,10 @@ class Lab < ActiveRecord::Base
 		 "fabbricaarca",
 		 "sanjotecdesignlab",
 		 "textilecentreofexcellencedesignlab",
-		 "textilelabamsterdamacademy", 
+		 "textilelabamsterdam", 
 		 "textilemuseumprato",
 		 "athensmakinglab",
 		 "lanificiopaoletti",
-      	 "waagsociety"
     ]
 
     Lab.where(slug: referees).order('name ASC')
