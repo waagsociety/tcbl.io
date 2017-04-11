@@ -141,7 +141,7 @@ class User < ActiveRecord::Base
     labs = processes.map{ |u| u.referee_lab }
     referees = labs.map { |u| u if ['unverified', 'need_more_info', 'more_info_added'].include? u.workflow_state }
 
-    return referees
+    return referees.compact #remove nil values from array
   end
 
   def referees_count
