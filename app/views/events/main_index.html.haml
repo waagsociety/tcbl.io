@@ -4,7 +4,7 @@
     %ul.events
       - @events.each do |event|
         %li.event{:style => "margin-top: 1em;"}
-          = link_to event, lab_event_path(event.lab, event)
+          = link_to event, lab_event_path(event.lab, event), target: (@target != nil ? @target : "_self")
           - if event.starts_at
             \-
             = event.local_starts_at.stamp('Wednesday 3rd October 2020 at 15:00')
@@ -23,7 +23,7 @@
     %ul.events
       - @past_events.each do |event|
         %li.event{:style => "margin-top: 1em;"}
-          = link_to event, lab_event_path(event.lab, event)
+          = link_to event, lab_event_path(event.lab, event), target: (@target != nil ? @target : "_self")
           - if event.starts_at
             \-
             = event.local_starts_at.stamp('Wednesday 3rd October 2020 at 15:00')

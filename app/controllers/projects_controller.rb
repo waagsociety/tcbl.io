@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
 
   def embed
     @projects = all_projects.page(params['page']).per(params['per'])
+	@target = "_new"
 	render :index, layout: "embed" 
   end
 

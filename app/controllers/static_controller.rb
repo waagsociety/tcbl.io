@@ -12,6 +12,7 @@ class StaticController < ApplicationController
   end
 
   def embed_what
+	@target = '_new'
 	render :what, layout: "embed" 
   end
 

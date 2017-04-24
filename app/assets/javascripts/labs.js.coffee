@@ -226,6 +226,12 @@ ready = ->
     # else
     window.markers = map
 
+    #check to see if we are embedded or not
+    url = window.location.href
+    lastPart = url.substr(url.lastIndexOf('/') + 1)
+    embedded = (lastPart == "embed")
+    # console.log("embedded: " + embedded)
+
     new L.Control.Zoom({ position: 'topleft' }).addTo(map)
 
     $.get "/mapdata.json", (labs) ->
@@ -238,7 +244,10 @@ ready = ->
             popupAnchor:  [0, -20]
           })
           lab.marker = L.marker([lab.latitude, lab.longitude], {icon: icon})
-          lab.marker.bindPopup("<a href='#{lab.url}'>#{lab.name}</a>")
+          if embedded
+            lab.marker.bindPopup("<a href='#{lab.url}' target='_new'>#{lab.name}</a>")
+          else
+            lab.marker.bindPopup("<a href='#{lab.url}'>#{lab.name}</a>")
           window.markers.addLayer(lab.marker)
           window.labs.push(lab)
     map.addLayer(window.markers)

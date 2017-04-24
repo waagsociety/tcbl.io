@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def embed
     @events = Event.upcoming.includes(:lab)
     @past_events = Event.past.includes(:lab)
+	@target = "_new"
 	render :main_index, layout: "embed" 
   end
 
