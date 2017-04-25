@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   include ProjectsOperations
 
-  before_filter :require_login, except: [:index, :embed]
+  before_filter :require_login, except: [:index, :embed, :show]
   after_action :allow_iframe, only: :embed
 
   def index
