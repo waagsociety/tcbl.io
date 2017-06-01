@@ -3,7 +3,7 @@
     = title "Upcoming events at #{@lab.name} "
     
     %ul.events
-      - @lab.events.upcoming.each do |event|
+      - @lab.events.order('starts_at ASC').upcoming.each do |event|
         %li.event{:style => "margin-top: 1em;"}
           = link_to event, lab_event_path(event.lab, event)
           - if event.starts_at
@@ -18,7 +18,7 @@
     
     = title "Past events at #{@lab.name}"
     %ul.events
-      - @lab.events.past.each do |event|
+      - @lab.events.order('starts_at DESC').past.each do |event|
         %li.event{:style => "margin-top: 1em;"}
           = link_to event, lab_event_path(event.lab, event)
           - if event.starts_at

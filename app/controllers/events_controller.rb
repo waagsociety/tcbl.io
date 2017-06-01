@@ -4,14 +4,14 @@ class EventsController < ApplicationController
 
   # show events for all labs
   def main_index
-    @events = Event.upcoming.includes(:lab)
-    @past_events = Event.past.includes(:lab)
+    @events = Event.order('starts_at ASC').upcoming.includes(:lab)
+    @past_events = Event.order('starts_at DESC').past.includes(:lab)
     #authorize_action_for @events
   end
 
   def embed
-    @events = Event.upcoming.includes(:lab)
-    @past_events = Event.past.includes(:lab)
+    @events = Event.order('starts_at ASC').upcoming.includes(:lab)
+    @past_events = Event.order('starts_at DESC').past.includes(:lab)
 	@target = "_new"
 	render :main_index, layout: "embed" 
   end
