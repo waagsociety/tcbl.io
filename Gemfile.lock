@@ -63,9 +63,9 @@ GIT
 
 GIT
   remote: git://github.com/nathanvda/cocoon.git
-  revision: bd8c4a232568cd79dfbec1f9709d3c8a9098ee4b
+  revision: 8be4013e8ebdc6aee0df5b83e92338807cd2ebcd
   specs:
-    cocoon (1.2.5)
+    cocoon (1.2.10)
 
 GIT
   remote: git://github.com/norman/friendly_id.git
@@ -582,5 +582,8 @@ DEPENDENCIES
   workflow!
   zonebie
 
+RUBY VERSION
+   ruby 2.0.0p648
+
 BUNDLED WITH
-   1.10.6
+   1.14.6

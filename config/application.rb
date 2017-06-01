@@ -29,7 +29,7 @@ module Fablabs
 
     config.i18n.fallbacks = false
     config.i18n.enforce_available_locales = true
-    config.i18n.available_locales = [:en, :it, :de, :fr, :es, :ja, :nl]
+    config.i18n.available_locales = [:en]
     config.i18n.default_locale = :en
     # config.i18n.backend = I18n::Backend::KeyValue.new({})
 

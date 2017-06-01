@@ -74,8 +74,9 @@
     -# = f.association :referee, collection: Lab.approved_referees, hint: "An existing lab MUST be able to verify your application", label: "Reference Lab", input_html: {style: 'width: 80%;'}
     -# %div.fieldset-wrapper
     
-    = render 'referees', :f => f
-
+    - if lab.new_record?
+      = render 'referees', :f => f
+      
     .radio-group
       = f.radio_button :charter, 1
       %label.radio{style: "width: 80%;"}
@@ -203,12 +204,13 @@
     - @collection = Machine.includes(:brand)
     - @selected = @lab.machines.map{|u| u}.collect
 
-    - if lab.new_record?
-      %p You will be able to add individual machines once your lab is approved.
-    - else
-      %label{for: "facilities_attributes"}
-        Machine
-        = select_tag :facilities_attributes, options_from_collection_for_select(@selected, :id, :lab_id), { multiple: true, size: 10, name: 'machine[facilities_attributes][][lab_id]', class: 'lab_selection_attributes'}
+    -# Commented out, you can do this at the machines page, caused a crash in edit mode, for now disable
+    -#- if lab.new_record?
+      -#%p You will be able to add individual machines once your lab is approved.
+    -#- else
+      -#%label{for: "facilities_attributes"}
+        -#Machine
+        -#= select_tag :facilities_attributes, options_from_collection_for_select(@selected, :id, :lab_id), { multiple: true, size: 10, name: 'machine[facilities_attributes][][lab_id]', class: 'lab_selection_attributes'}
 
     //= f.input :tools_list, hint: "Please list any machines that you have so that we can add them to the directory.", input_html: { style: "height: 8em" }, placeholder: "e.g. Makerbot Industries - Makerbot 2"
   %fieldset.field-six.field

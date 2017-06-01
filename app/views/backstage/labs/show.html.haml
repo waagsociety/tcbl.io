@@ -70,7 +70,7 @@
       %tr  
         %th Actions
         %td
-          - if current_user.is_referee? or current_user.is_unique_referee?
+          - if current_user.is_referee_for?(@lab) #check if current user is referee for @lab
             %tr  
               %th 
                 As Referee 
