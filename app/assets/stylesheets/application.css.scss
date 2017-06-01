@@ -190,6 +190,11 @@ h1 {
   display: block !important;
 }
 
+.select2-container--default .select2-results > .select2-results__options
+{
+  max-height: 180px !important;
+}
+
 .lab-contact-details {
   line-height: 1.2em;
 }
