@@ -34,7 +34,8 @@ class Provider < ActiveRecord::Base
 	def register!(redirect_uri)
 		client = OpenIDConnect::Client::Registrar.new(
 			config.registration_endpoint,
-			client_name: 'labs_tcbl_dev_taco_rp',
+			#client_name: 'labs_tcbl_dev_taco_rp',
+			client_name: Rails.configuration.sso.client_name,
 			application_type: 'web',
 			redirect_uris: [redirect_uri],
 			subject_type: 'pairwise'
