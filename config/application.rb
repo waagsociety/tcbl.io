@@ -57,8 +57,8 @@ module Fablabs
       :password => ENV['EMAIL_PASSWORD'],
     }
 
-    config.sso.client_name = ENV['SSO_CLIENT_NAME']
-
+    config.sso_client_name = ENV['SSO_CLIENT_NAME']
+    config.sso_server = ENV['SSO_SERVER']
 
     config.autoload_paths += %W(#{config.root}/lib)
   end
