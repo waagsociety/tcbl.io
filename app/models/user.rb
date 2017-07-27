@@ -41,7 +41,8 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :grades
 
   validates_format_of :email, :with => /\A(.+)@(.+)\z/
-  validates :username, format: { :with => /\A[a-zA-Z0-9]+\z/ }, length: { minimum: 4, maximum: 30 }
+  #validates :username, format: { :with => /\A[a-zA-Z0-9]+\z/ }, length: { minimum: 4, maximum: 30 }
+  validates :username, presence:true, length: { minimum: 4, maximum: 30 }
 
   validates :first_name, :last_name, :email, :username, presence: true
   validates_uniqueness_of :email, :username, case_sensitive: false
