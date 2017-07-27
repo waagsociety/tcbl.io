@@ -33,5 +33,5 @@
         = link_to "Not yet a member? <strong>#{t('views.header.signup', default: 'Sign up')}</strong>".html_safe, signup_url(goto: params[:goto])
 
     = form_tag providers_path do
-      = hidden_field_tag :host, "https://tcblsso.ilabt.iminds.be/"
+      = hidden_field_tag :host, "#{Rails.configuration.sso_server}"
       = submit_tag "Sign in with tcbl sso"
