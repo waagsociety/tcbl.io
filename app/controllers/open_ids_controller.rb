@@ -41,10 +41,9 @@ class OpenIdsController < ApplicationController
 			}
 			user = User.new params
 			#logger.info("created new user: #{user}")
-			user.verify! #preverify (before save, so no emails gets sent. because they are already valid from sso
+			user.workflow_state = :verified #bypass the workflow system
 
 			if user.save(:validate => false) #skipping validation because we are creating the user programatically
-
 				#logger.info("saved new user")
 				UserMailer.delay.welcome(user.id)
 				session[:user_id] = user.id
