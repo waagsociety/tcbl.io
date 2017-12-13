@@ -42,13 +42,13 @@ class OpenIdsController < ApplicationController
 			user = User.new params
 			#logger.info("created new user: #{user}")
 
-			#TODO: we need to remove the username validation, or change it so that it can also be an email address
-			#otherwise we can't update the user profile
 			if user.save(:validate => false) #skipping validation because we are creating the user programatically
+			   user.verify! #preverify because they are already valid from sso
+
 				#logger.info("saved new user")
 				UserMailer.delay.welcome(user.id)
 				session[:user_id] = user.id
-				redirect_to root_url, flash: { success: "Thanks for signing up. Please check your email to complete your registration." }
+				redirect_to root_url			
 			else
 				#logger.info user.errors.full_messages
 				redirect_to root_url, flash: { error: "Save new user failed..."}
