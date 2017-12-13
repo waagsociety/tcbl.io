@@ -83,7 +83,7 @@ class Provider < ActiveRecord::Base
 			response_type: :code,
 			nonce: nonce,
 			state: nonce,
-			scope: scopes_supported & [:minimum, :email, :profile, :address].collect(&:to_s),
+			scope: scopes_supported & [:minimum, :openid].collect(&:to_s),
 			# scope: [:openid, :profile, :address, :email, :address, :phone],
 			# request: OpenIDConnect::RequestObject.new(
 			#   id_token: {
