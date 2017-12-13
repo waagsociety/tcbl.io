@@ -41,9 +41,9 @@ class OpenIdsController < ApplicationController
 			}
 			user = User.new params
 			#logger.info("created new user: #{user}")
+			user.verify! #preverify (before save, so no emails gets sent. because they are already valid from sso
 
 			if user.save(:validate => false) #skipping validation because we are creating the user programatically
-			   user.verify! #preverify because they are already valid from sso
 
 				#logger.info("saved new user")
 				UserMailer.delay.welcome(user.id)
