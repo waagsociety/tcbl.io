@@ -60,7 +60,7 @@ class Lab < ActiveRecord::Base
   validates_presence_of :address_1, :kind, on: :create
 
   #check locals for custom names in error messages
-  validates_acceptance_of :charter, :accept => true, message: 'You must agree to the TCBL principles.'
+  validates_acceptance_of :charter, :accept => true, message: 'You must agree to the TCBL principles.', on: :create
   # validates_acceptance_of :network, :programs, :tools, :access, :chart, :accept => true, message: 'You must agree to our terms and conditions.'
 
   validates :slug, format: {:with => /\A[a-zA-Z0-9]+\z/ }, allow_nil: true, allow_blank: true, length: { minimum: 3 }
@@ -82,7 +82,7 @@ class Lab < ActiveRecord::Base
   bitmask :capabilities, as: Capabilities
 
   unless Rails.env.test?
-    validates :referee_approval_processes, presence: { message: "are missing"}, :length => { is: 3, message: "should specify exactly three labs"}
+    validates :referee_approval_processes, presence: { message: "are missing"}, :length => { is: 3, message: "should specify exactly three labs"}, on: :create
   end
   # validates :employees, presence: true, on: :create
 

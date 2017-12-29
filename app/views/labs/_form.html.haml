@@ -76,11 +76,10 @@
     
     - if lab.new_record?
       = render 'referees', :f => f
-      
-    .radio-group
-      = f.radio_button :charter, 1
-      %label.radio{style: "width: 80%;"}
-        The submitted lab commits to actively comply to the TCBL principles .
+      .radio-group
+        = f.radio_button :charter, 1
+        %label.radio{style: "width: 80%;"}
+          The submitted lab commits to actively comply to the TCBL principles .
 
     = f.simple_fields_for :criteria do |c|
       = c.input :principle1, label: "Curiosity principle", placeholder: "How do you implement the Curiosity Principle in your lab?", hint: "Explorative, innovative character. Outcomes feed into new, replicable business models. Exploring new business models by reframing."
