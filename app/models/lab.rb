@@ -208,15 +208,13 @@ class Lab < ActiveRecord::Base
     self.select(:updated_at).order('updated_at DESC').first
   end
 
-  #TODO: should be migrated to database
-  #waagsociety is still in there for debugging purposes
   def self.approved_referees
     referees = [
 		 "athensfashiondesignlab",
 		 "fabbricaarca",
 		 "sanjotecdesignlab",
 		 "textilecentreofexcellencedesignlab",
-		 "textilelabamsterdam", 
+		 "connectingexplorers", 
 		 "textilemuseumprato",
 		 "athensmakinglab",
 		 "lanificiopaoletti",
