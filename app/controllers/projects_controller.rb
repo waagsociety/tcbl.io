@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @projects }
+      format.rss { render :layout => false }
+
       # format.csv { send_data @projects.to_csv }
     end
   end
