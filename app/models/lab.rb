@@ -148,7 +148,7 @@ class Lab < ActiveRecord::Base
     if avatar_src.present?
       avatar_src
     else
-      '/assets/big-avatar.png'
+     ActionController::Base.helpers.asset_url('big-avatar.png') 
     end
   end
 
