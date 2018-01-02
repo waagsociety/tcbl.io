@@ -14,13 +14,13 @@ class RefereeMailer < ActionMailer::Base
             mail(to: user.email_string, subject: "[labs.tcbl.eu] #{@lab} #{action.capitalize}")
           end
         elsif @lab.referee_approval_processes
-          @lab.referee_approval_processes.map{ |process| process.referee_lab }.each do |ref|
-            users = (ref.direct_admins + [ref.creator]).compact.uniq
-            users.each do |user|
-              @user = user
-              mail(to: user.email_string, subject: "[labs.tcbl.eu] #{@lab} #{action.capitalize}")
-            end
-          end
+          # send 1 email to all refs at the same time
+          referees = @lab.referee_approval_processes.map{|process| process.referee_lab}
+          users = referees.map{|ref| (ref.direct_admins + [ref.creator]).compact.uniq}.flatten
+          recipients = users.map{|user| user.email_string}
+
+          puts "sending lab_#{action} mail to #{recipients.join ','} for lab: #{@lab}"
+          mail(to: recipients, subject: "[labs.tcbl.eu] #{@lab} #{action.capitalize}")
         end
       rescue ActiveRecord::RecordNotFound
       end

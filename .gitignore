@@ -31,3 +31,4 @@ rails_best_practices_output.html
 sitemap.x*
 source_testing_env.sh
 .DS_Store
+.byebug_history
