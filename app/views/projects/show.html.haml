@@ -1,3 +1,9 @@
+- content_for :meta do
+  %meta{content: @project.description, property: "og:description"}
+  %meta{content: @project.title, property: "og:title"}
+  - if @project.project_cover != "none" 
+    %meta{content: "#{request.protocol}#{request.host_with_port}#{@project.project_cover}", property: "og:image"}
+
 - title @project.title
 
 .row
