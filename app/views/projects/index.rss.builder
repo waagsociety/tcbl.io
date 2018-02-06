@@ -8,10 +8,18 @@ xml.rss :version => "2.0" do
         @projects.each do |project|
             xml.item do 
                 xml.title project.title
-                xml.descriptio project.description
+                xml.description project.description
                 xml.pubDate  project.updated_at.to_s(:rfc822)
                 xml.link project_url(project)
                 xml.guid project_url(project)
+                xml.author "#{project.owner.first_name} #{project.owner.last_name}"
+               
+                xml.image "test"
+
+                if project.project_cover != "none"
+                    image_url = "#{request.protocol}#{request.host_with_port}#{project.project_cover}"
+                    xml.enclosure :url => image_url
+                 end 
             end
         end
     end
