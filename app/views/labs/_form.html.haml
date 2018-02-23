@@ -100,6 +100,15 @@
     %div.fieldset-wrapper
 
       = f.input :capabilities, as: 'check_boxes', inline_label: true, item_wrapper_class: 'checkbox_container', label: false, collection: Lab::Capabilities.map{|f| [ I18n.t("capabilities.#{f}"), f]}, checked: f.object.capabilities, hint: "Intended members, participants and service users.", label: "Target groups"
+        
+      %p Expertise; for each of the following 5 expertises you have the opportunity to explain your competence to the visitors of your lab page.
+
+      = f.simple_fields_for :criteria do |c|
+        = c.input :skill1, label: "1. Social innovation", hint: 'Leave empty if you do not have this expertise, this will be visible on your lab page! <span id="skill1-count"></span> characters remaining.'.html_safe, input_html: { rows: 2, data: {limit: 150, counter: '#skill1-count'}}
+        = c.input :skill2, label: "2. Teaching & training", hint: 'Leave empty if you do not have this expertise, this will be visible on your lab page! <span id="skill2-count"></span> characters remaining.'.html_safe, input_html: { rows: 2, data: {limit: 150, counter: '#skill2-count'}}
+        = c.input :skill3, label: "3. Consultancy", hint: 'Leave empty if you do not have this expertise, this will be visible on your lab page! <span id="skill3-count"></span> characters remaining.'.html_safe, input_html: { rows: 2, data: {limit: 150, counter: '#skill3-count'}}
+        = c.input :skill4, label: "4. Practice based research", hint: 'Leave empty if you do not have this expertise, this will be visible on your lab page! <span id="skill4-count"></span> characters remaining.'.html_safe, input_html: { rows: 2, data: {limit: 150, counter: '#skill4-count'}}
+        = c.input :skill5, label: "5. Creative research", hint: 'Leave empty if you do not have this expertise, this will be visible on your lab page! <span id="skill5-count"></span> characters remaining.'.html_safe, input_html: { rows: 2, data: {limit: 150, counter: '#skill5-count'}}
 
       = f.simple_fields_for :criteria do |c|
         = c.input :service1, label: "Service 1", placeholder: "A service you are interested in providing as part of TCBL and to whom."

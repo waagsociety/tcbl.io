@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214085017) do
+ActiveRecord::Schema.define(version: 20180223150725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -242,6 +242,11 @@ ActiveRecord::Schema.define(version: 20170214085017) do
     t.text     "network"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "skill1"
+    t.text     "skill2"
+    t.text     "skill3"
+    t.text     "skill4"
+    t.text     "skill5"
   end
 
   create_table "labs", force: true do |t|

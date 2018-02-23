@@ -75,10 +75,8 @@ class Lab < ActiveRecord::Base
   end
 
   Kinds = %w(design make place)
-  #TODO: rename to focusgroups
+  
   Capabilities = %w(designers textile_designers fashion_designers artists students teachers engineers curators researchers entrepeneurs makers artisans sme unemployed children other)
-  # Kinds = %w(planned_fab_lab mini_fab_lab fab_lab supernode)
-  # Capabilities = %w(three_d_printing cnc_milling circuit_production laser precision_milling vinyl_cutting)
   bitmask :capabilities, as: Capabilities
 
   unless Rails.env.test?
