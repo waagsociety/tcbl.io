@@ -1,0 +1,9 @@
+- if skills
+  .heading
+    Lab
+    %strong Expertise
+  %ul.skills
+    - skills.each do |key, value|
+      %li
+        %b= "#{key}" 
+        %p= "#{value}"

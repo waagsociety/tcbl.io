@@ -16,6 +16,9 @@
           = render("machines", lab: @lab, machines: @machines)
         - if @lab.capabilities.length > 0
           = render "capabilities", capabilities: @lab.capabilities
+        - if @lab.skills.length > 0
+          = render "skills", skills: @lab.skills
+
       .columns.large-6
         = render "minimap", lab: @lab if @lab.longitude
         .lab-description{itemprop: "description"}= simple_format @lab.description

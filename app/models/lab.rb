@@ -150,6 +150,23 @@ class Lab < ActiveRecord::Base
     end
   end
 
+  #returns dictionary of skills used for display (created from criteria)
+  #only skills that are filled in are shown
+  def skills
+      skills = Hash.new
+      keys = ["social innovation", "teaching & training", "consultancy", "practice based research", "creative research"]
+      if(criteria != nil)
+          (1..5).map{|n| 
+              key = keys[n -1]
+              value = criteria["skill#{n}"]
+              if(value && value.length > 0)
+                skills[key] = value
+              end
+          }
+      end
+      return skills   
+  end
+
   def to_s
     name
   end
