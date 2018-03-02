@@ -33,31 +33,19 @@
         %th Responsibility Principle
         %td
           = @lab.criteria.principle7
-      %tr
-        %th Service 1
-        %td
-          = @lab.criteria.service1
-      %tr
-        %th Service 2
-        %td
-          = @lab.criteria.service2
-      %tr
-        %th Service 3
-        %td
-          = @lab.criteria.service3
-      %tr
-        %th Service 4
-        %td
-          = @lab.criteria.service4
-      %tr
-        %th Service 5
-        %td
-          = @lab.criteria.service5
+
+      - (1..5).each do |n|
+        %tr
+          %th= "Service #{n}" 
+          %td= @lab.criteria["service#{n}"]
       %tr
         %th Network and Collaborations 
-        %td
-          = @lab.criteria.network
+        %td= @lab.criteria.network
 
+      - @lab.skills.each do |key, value|
+        %tr
+          %th= key
+          %td= value
 
 
   
