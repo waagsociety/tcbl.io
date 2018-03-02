@@ -154,7 +154,7 @@ class Lab < ActiveRecord::Base
   #only skills that are filled in are shown
   def skills
       skills = Hash.new
-      keys = ["social innovation", "teaching & training", "consultancy", "practice based research", "creative research"]
+      keys = ["Social innovation", "Teaching & training", "Consultancy", "Practice based research", "Creative research"]
       if(criteria != nil)
           (1..5).map{|n| 
               key = keys[n -1]
