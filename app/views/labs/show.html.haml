@@ -32,3 +32,5 @@
         - if @events.length > 0
           = render("events", lab: @lab, events: @events)
         = render "nearby", lab: @lab, nearby_labs: @nearby_labs
+        - if @lab.projects.length > 0
+          = render("projects", projects: @lab.projects)

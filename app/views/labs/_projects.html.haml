@@ -1,0 +1,10 @@
+-if projects
+  .heading
+    Lab
+    %strong Projects
+  %ul.projects
+    - projects.each do |project|
+      %li
+        = link_to project do
+          = project.title
+
