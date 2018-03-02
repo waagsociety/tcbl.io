@@ -15,7 +15,7 @@ xml.rss :version => "2.0" do
                 xml.author "#{project.owner.first_name} #{project.owner.last_name}"
 
                 if project.project_cover != "none"
-                    image_url = "#{request.protocol}#{request.host_with_port}#{project.project_cover}"
+                    image_url = "#{request.protocol}#{request.host_with_port}#{project.project_cover.medium.url}"
                     xml.enclosure :url => image_url
                  end 
             end
