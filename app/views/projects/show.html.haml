@@ -1,4 +1,7 @@
 - content_for :meta do
+  %meta{content: "article", property: "og:type"}
+  %meta{content: @project.updated_at.to_s(:rfc822), property: "article:published_time"}
+  %meta{content: "#{@project.owner.first_name} #{@project.owner.last_name}", property: "article:author"}
   %meta{content: @project.description, property: "og:description"}
   %meta{content: @project.title, property: "og:title"}
   - if @project.project_cover != "none" 
