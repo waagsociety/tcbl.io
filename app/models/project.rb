@@ -46,15 +46,19 @@ class Project < ActiveRecord::Base
     [ "Open source",
       "Hardware",
       "Software",
-      "Research",
+      "Practice-based research",
       "Textile academy",
       "Open day",
       "Textiles & materials",
       "Clothing",
       "Craftsmanship",
-	  "Heritage",
-	  "Technique",
-	  "Pattern drafting"
+	    "Heritage",
+	    "Technique",
+	    "Pattern drafting",
+      "Social innovation",
+      "Teaching & training",
+      "Business support",
+      "Creative research"
     ]
   end
 
