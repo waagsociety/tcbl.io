@@ -7,6 +7,7 @@ Fablabs::Application.routes.draw do
 
   get "signout" => "sessions#destroy", :as => "signout"
   get "signin" => "sessions#new", :as => "signin"
+  get "localsignin" => "sessions#old", :as => "localsignin"
   get '/robots.txt' => 'robots#robots', :format => :txt
 
   resources :providers, only: :create do

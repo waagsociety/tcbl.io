@@ -88,7 +88,7 @@
                   = fa_icon "sign-out", text: t("views.header.signout", default: "Sign out")
         - else
           %li= link_to t("views.header.signin", default: "Sign in"), signin_path
-          %li.last= link_to t("views.header.signup", default: "Sign up"), signup_path
+          %li.last= link_to t("views.header.signup", default: "Sign up"), 'https://tcblsso.ilabt.iminds.be/usermanager/user/register' 
 
         -# %li#locale
         -#   = link_to choose_locale_path, id: 'locale-icon', class: I18n.locale, data: { reveal_id: "myModal", reveal_ajax: "true" } do

@@ -1,0 +1,30 @@
+- title t("views.header.signin", default: "Sign in")
+.row
+  .columns.large-4.large-centered
+
+    -# .fablabs
+    -#   %span fablabs
+    -#   %span.io IO
+
+    .row
+      .columns.large-12.text-center
+        = link_to root_path do
+          = image_tag "fablabs02.png", id: 'full-logo'
+    
+    = form_tag sessions_path do
+      -# = simple_form_for :signin, { url: sessions_path } do
+      = hidden_field_tag :goto, params[:goto]
+      .row
+        .columns.large-12
+          = label_tag :email_or_username, "Email or Username", class: 'hide'
+          = text_field_tag :email_or_username, params[:email_or_username], placeholder: 'Email or Username', autofocus: params[:email_or_username].blank?, autocapitalize: "off", autocorrect: "off"
+      
+        .columns.small-9
+          = label_tag :password, nil, class: 'hide'
+          = password_field_tag :password, nil, placeholder: 'Password'
+        .columns.small-3.forgot
+          = link_to "Forgot?", new_recovery_url()
+
+      .actions= submit_tag t("views.header.signin", default: "Sign in"), class: 'button', style: 'margin-bottom: 0'
+        
+    = link_to "Not yet a member? <strong>#{t('views.header.signup', default: 'Sign up')}</strong>".html_safe, signup_url(goto: params[:goto])
