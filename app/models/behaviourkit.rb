@@ -21,7 +21,7 @@ class Behaviourkit
         params = {}
         params[:data] = trackable.to_json 
         params[:userID] = actor.email 
-        params[:type] = "labs.#{trackable.class.name.downcase}.#{action}"
+        params[:type] = "labs.#{trackable.class.name.downcase}/#{action}"
        
         #step 3. execute post
         uri = URI("http://#{@@url}/logs")
