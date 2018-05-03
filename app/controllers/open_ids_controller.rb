@@ -15,11 +15,7 @@ class OpenIdsController < ApplicationController
 
 		#match by email 
 		#if we have a user with the same email adress, lets log in
-		#TODO (optional?): match by sub, if we can't find by sub, try to match by email, then assign sub... 
-		# not really necessary though, because email is the main login, 
-		# and if the gluu database needs to be reset, this can be used regardless..
-
-		user = User.where(["email = ?", userinfo.email]).first
+        user = User.where(["email = ?", userinfo.email.downcase]).first
 		if(user != nil)
 			#actually perform the log in of the matched user
 			session[:user_id] = user.id
